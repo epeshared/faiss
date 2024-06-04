@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File simdlib_neon.h &mdash; Faiss  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
     <link rel="canonical" href="https://faiss.ai/cpp_api/file/simdlib__neon_8h.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="File sorting.h" href="sorting_8h.html" />
+    <link rel="next" title="File simdlib_ppc64.h" href="simdlib__ppc64_8h.html" />
     <link rel="prev" title="File simdlib_emulated.h" href="simdlib__emulated_8h.html" /> 
 </head>
 
@@ -199,6 +201,8 @@
 <li class="toctree-l2"><a class="reference internal" href="PtxUtils_8cuh.html">File PtxUtils.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Quantizer_8h.html">File Quantizer.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftFlatIndex_8cuh.html">File RaftFlatIndex.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFFlat_8cuh.html">File RaftIVFFlat.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFPQ_8cuh.html">File RaftIVFPQ.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftUtils_8h.html">File RaftUtils.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReductionOperators_8cuh.html">File ReductionOperators.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reductions_8cuh.html">File Reductions.cuh</a></li>
@@ -231,6 +235,7 @@
 <li class="toctree-l2"><a class="reference internal" href="approx__topk_8h.html">File approx_topk.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="approx__topk__hamming_8h.html">File approx_topk_hamming.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="avx512_8h.html">File avx512.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bf16_8h.html">File bf16.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone__index_8h.html">File clone_index.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-avx2_8h.html">File code_distance-avx2.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-generic_8h.html">File code_distance-generic.h</a></li>
@@ -241,6 +246,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distances__fused_8h.html">File distances_fused.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances-inl_8h.html">File extra_distances-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances_8h.html">File extra_distances.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp16-arm_8h.html">File fp16-arm.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-fp16c_8h.html">File fp16-fp16c.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-inl_8h.html">File fp16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16_8h.html">File fp16.h</a></li>
@@ -266,12 +272,15 @@
 <li class="toctree-l2"><a class="reference internal" href="python__callbacks_8h.html">File python_callbacks.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantize__lut_8h.html">File quantize_lut.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random_8h.html">File random.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual__quantizer__encode__steps_8h.html">File residual_quantizer_encode_steps.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simd__result__handlers_8h.html">File simd_result_handlers.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib_8h.html">File simdlib.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__avx2_8h.html">File simdlib_avx2.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__avx512_8h.html">File simdlib_avx512.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__based_8h.html">File simdlib_based.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__emulated_8h.html">File simdlib_emulated.h</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">File simdlib_neon.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__ppc64_8h.html">File simdlib_ppc64.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sorting_8h.html">File sorting.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transpose-avx2-inl_8h.html">File transpose-avx2-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils_8h.html">File utils.h</a></li>
@@ -314,6 +323,8 @@
 <dd><p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
+<p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Implementation of k-means clustering with many variants.</p>
+<p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. <a class="reference internal" href="../struct/structfaiss_1_1IDSelector.html#structfaiss_1_1IDSelector"><span class="std std-ref">IDSelector</span></a> is intended to define a subset of vectors to handle (for removal or as subset to search)</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. PQ4 SIMD packing and accumulation functions</p>
@@ -321,11 +332,6 @@
 <p>The implementation of these functions is spread over 3 cpp files to reduce parallel compile times. Templates are instantiated explicitly.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. This file contains callbacks for kernels that compute distances.</p>
-<p>The SIMDResultHandler object is intended to be templated and inlined. Methods:<ul class="simple">
-<li><p>handle(): called when 32 distances are computed and provided in two <a class="reference internal" href="../struct/structfaiss_1_1simd16uint16.html#structfaiss_1_1simd16uint16"><span class="std std-ref">simd16uint16</span></a>. (q, b) indicate which entry it is in the block.</p></li>
-<li><p>set_block_origin(): set the sub-matrix that is being computed</p></li>
-</ul>
-</p>
 <p>Throughout the library, vectors are provided as float * pointers. Most algorithms can be optimized when several vectors are processed (added/searched) together in a batch. In this case, they are passed in as a matrix. When n vectors of size d are provided as float * x, component j of vector i is</p>
 <p>x[ i * d + j ]</p>
 <p>where 0 &lt;= i &lt; n and 0 &lt;= j &lt; d. In other words, matrices are always compact. When specifying the size of the matrix, we call it an n*d matrix, which implies a row-major storage.</p>
@@ -342,26 +348,26 @@
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Defines a few objects that apply transformations to a set of vectors Often these are pre-processing steps. </p>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss12simd16uint16E">
-<span id="_CPPv3N5faiss12simd16uint16E"></span><span id="_CPPv2N5faiss12simd16uint16E"></span><span id="faiss::simd16uint16"></span><span class="target" id="structfaiss_1_1simd16uint16"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd16uint16</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
+<span id="_CPPv3N5faiss12simd16uint16E"></span><span id="_CPPv2N5faiss12simd16uint16E"></span><span id="faiss::simd16uint16"></span><span class="target" id="structfaiss_1_1simd16uint16"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd16uint16</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;simdlib_avx2.h&gt;</em></div>
 </dd></dl>
 
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss11simd32uint8E">
-<span id="_CPPv3N5faiss11simd32uint8E"></span><span id="_CPPv2N5faiss11simd32uint8E"></span><span id="faiss::simd32uint8"></span><span class="target" id="structfaiss_1_1simd32uint8"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd32uint8</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
+<span id="_CPPv3N5faiss11simd32uint8E"></span><span id="_CPPv2N5faiss11simd32uint8E"></span><span id="faiss::simd32uint8"></span><span class="target" id="structfaiss_1_1simd32uint8"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd32uint8</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss11simd8uint32E">
-<span id="_CPPv3N5faiss11simd8uint32E"></span><span id="_CPPv2N5faiss11simd8uint32E"></span><span id="faiss::simd8uint32"></span><span class="target" id="structfaiss_1_1simd8uint32"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd8uint32</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
+<span id="_CPPv3N5faiss11simd8uint32E"></span><span id="_CPPv2N5faiss11simd8uint32E"></span><span id="faiss::simd8uint32"></span><span class="target" id="structfaiss_1_1simd8uint32"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd8uint32</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;simdlib_avx2.h&gt;</em></div>
 </dd></dl>
 
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss12simd8float32E">
-<span id="_CPPv3N5faiss12simd8float32E"></span><span id="_CPPv2N5faiss12simd8float32E"></span><span id="faiss::simd8float32"></span><span class="target" id="structfaiss_1_1simd8float32"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd8float32</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
+<span id="_CPPv3N5faiss12simd8float32E"></span><span id="_CPPv2N5faiss12simd8float32E"></span><span id="faiss::simd8float32"></span><span class="target" id="structfaiss_1_1simd8float32"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">simd8float32</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="simdlib__avx2_8h.html#_CPPv4N5faiss10simd256bitE" title="faiss::simd256bit"><span class="n"><span class="pre">simd256bit</span></span></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp type">
@@ -653,7 +659,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="simdlib__emulated_8h.html" class="btn btn-neutral float-left" title="File simdlib_emulated.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="sorting_8h.html" class="btn btn-neutral float-right" title="File sorting.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="simdlib__ppc64_8h.html" class="btn btn-neutral float-right" title="File simdlib_ppc64.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

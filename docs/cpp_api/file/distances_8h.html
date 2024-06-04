@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File distances.h &mdash; Faiss  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
     <link rel="canonical" href="https://faiss.ai/cpp_api/file/distances_8h.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -199,6 +201,8 @@
 <li class="toctree-l2"><a class="reference internal" href="PtxUtils_8cuh.html">File PtxUtils.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Quantizer_8h.html">File Quantizer.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftFlatIndex_8cuh.html">File RaftFlatIndex.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFFlat_8cuh.html">File RaftIVFFlat.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFPQ_8cuh.html">File RaftIVFPQ.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftUtils_8h.html">File RaftUtils.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReductionOperators_8cuh.html">File ReductionOperators.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reductions_8cuh.html">File Reductions.cuh</a></li>
@@ -231,6 +235,7 @@
 <li class="toctree-l2"><a class="reference internal" href="approx__topk_8h.html">File approx_topk.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="approx__topk__hamming_8h.html">File approx_topk_hamming.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="avx512_8h.html">File avx512.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bf16_8h.html">File bf16.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone__index_8h.html">File clone_index.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-avx2_8h.html">File code_distance-avx2.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-generic_8h.html">File code_distance-generic.h</a></li>
@@ -241,6 +246,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distances__fused_8h.html">File distances_fused.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances-inl_8h.html">File extra_distances-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances_8h.html">File extra_distances.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp16-arm_8h.html">File fp16-arm.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-fp16c_8h.html">File fp16-fp16c.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-inl_8h.html">File fp16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16_8h.html">File fp16.h</a></li>
@@ -266,12 +272,15 @@
 <li class="toctree-l2"><a class="reference internal" href="python__callbacks_8h.html">File python_callbacks.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantize__lut_8h.html">File quantize_lut.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random_8h.html">File random.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual__quantizer__encode__steps_8h.html">File residual_quantizer_encode_steps.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simd__result__handlers_8h.html">File simd_result_handlers.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib_8h.html">File simdlib.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__avx2_8h.html">File simdlib_avx2.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__avx512_8h.html">File simdlib_avx512.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__based_8h.html">File simdlib_based.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__emulated_8h.html">File simdlib_emulated.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__neon_8h.html">File simdlib_neon.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__ppc64_8h.html">File simdlib_ppc64.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sorting_8h.html">File sorting.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transpose-avx2-inl_8h.html">File transpose-avx2-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils_8h.html">File utils.h</a></li>
@@ -314,6 +323,8 @@
 <dd><p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
+<p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Implementation of k-means clustering with many variants.</p>
+<p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. <a class="reference internal" href="../struct/structfaiss_1_1IDSelector.html#structfaiss_1_1IDSelector"><span class="std std-ref">IDSelector</span></a> is intended to define a subset of vectors to handle (for removal or as subset to search)</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. PQ4 SIMD packing and accumulation functions</p>
@@ -321,11 +332,6 @@
 <p>The implementation of these functions is spread over 3 cpp files to reduce parallel compile times. Templates are instantiated explicitly.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. This file contains callbacks for kernels that compute distances.</p>
-<p>The SIMDResultHandler object is intended to be templated and inlined. Methods:<ul class="simple">
-<li><p>handle(): called when 32 distances are computed and provided in two <a class="reference internal" href="../struct/structfaiss_1_1simd16uint16.html#structfaiss_1_1simd16uint16"><span class="std std-ref">simd16uint16</span></a>. (q, b) indicate which entry it is in the block.</p></li>
-<li><p>set_block_origin(): set the sub-matrix that is being computed</p></li>
-</ul>
-</p>
 <p>Throughout the library, vectors are provided as float * pointers. Most algorithms can be optimized when several vectors are processed (added/searched) together in a batch. In this case, they are passed in as a matrix. When n vectors of size d are provided as float * x, component j of vector i is</p>
 <p>x[ i * d + j ]</p>
 <p>where 0 &lt;= i &lt; n and 0 &lt;= j &lt; d. In other words, matrices are always compact. When specifying the size of the matrix, we call it an n*d matrix, which implies a row-major storage.</p>
@@ -508,12 +514,36 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss26fvec_inner_products_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t">
 <span id="_CPPv3N5faiss26fvec_inner_products_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t"></span><span id="_CPPv2N5faiss26fvec_inner_products_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t"></span><span id="faiss::fvec_inner_products_by_idx__floatP.floatCP.floatCP.int64_tCP.s.s.s"></span><span class="target" id="namespacefaiss_1a3ccc8ec4f2a74c6154befe048fe83f13"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fvec_inner_products_by_idx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ip</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss26fvec_inner_products_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>compute the inner product between x and a subset y of ny vectors defined by ids</p>
+<p>ip(i, j) = inner_product(x(i, :), y(ids(i, j), :))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> – output array, size nx * ny </p></li>
+<li><p><strong>x</strong> – first-term vector, size nx * d </p></li>
+<li><p><strong>y</strong> – second-term vector, size (max(ids) + 1) * d </p></li>
+<li><p><strong>ids</strong> – ids to sample from y, size nx * ny </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss17fvec_L2sqr_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t">
 <span id="_CPPv3N5faiss17fvec_L2sqr_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t"></span><span id="_CPPv2N5faiss17fvec_L2sqr_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t"></span><span id="faiss::fvec_L2sqr_by_idx__floatP.floatCP.floatCP.int64_tCP.s.s.s"></span><span class="target" id="namespacefaiss_1a470eea056c32c67ac13bb4791394b0b8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fvec_L2sqr_by_idx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dis</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss17fvec_L2sqr_by_idxEPfPKfPKfPK7int64_t6size_t6size_t6size_t" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>compute the squared L2 distances between x and a subset y of ny vectors defined by ids</p>
+<p>dis(i, j) = inner_product(x(i, :), y(ids(i, j), :))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dis</strong> – output array, size nx * ny </p></li>
+<li><p><strong>x</strong> – first-term vector, size nx * d </p></li>
+<li><p><strong>y</strong> – second-term vector, size (max(ids) + 1) * d </p></li>
+<li><p><strong>ids</strong> – ids to sample from y, size nx * ny </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss22pairwise_indexed_L2sqrE6size_t6size_tPKfPK7int64_tPKfPK7int64_tPf">
@@ -535,7 +565,19 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss30pairwise_indexed_inner_productE6size_t6size_tPKfPK7int64_tPKfPK7int64_tPf">
 <span id="_CPPv3N5faiss30pairwise_indexed_inner_productE6size_t6size_tPKfPK7int64_tPKfPK7int64_tPf"></span><span id="_CPPv2N5faiss30pairwise_indexed_inner_productE6size_t6size_tPKfPK7int64_tPKfPK7int64_tPf"></span><span id="faiss::pairwise_indexed_inner_product__s.s.floatCP.int64_tCP.floatCP.int64_tCP.floatP"></span><span class="target" id="namespacefaiss_1a687edf56ab386203fcd992572c539f99"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairwise_indexed_inner_product</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ix</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">iy</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss30pairwise_indexed_inner_productE6size_t6size_tPKfPK7int64_tPKfPK7int64_tPf" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>compute dis[j] = inner_product(x[ix[j]], y[iy[j]]) forall j=0..n-1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – size (max(ix) + 1, d) </p></li>
+<li><p><strong>y</strong> – size (max(iy) + 1, d) </p></li>
+<li><p><strong>ix</strong> – size n </p></li>
+<li><p><strong>iy</strong> – size n </p></li>
+<li><p><strong>dis</strong> – size n </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss17knn_inner_productEPKfPKf6size_t6size_t6size_tP21float_minheap_array_tPK10IDSelector">
@@ -604,8 +646,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t">
-<span id="_CPPv3N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="_CPPv2N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="faiss::knn_inner_products_by_idx__floatCP.floatCP.int64_tCP.s.s.s.s.floatP.int64_tP.int64_t"></span><span class="target" id="namespacefaiss_1a23318c515f89eba3b85fae15eefd4625"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">knn_inner_products_by_idx</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">subset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nsubset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">vals</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ld_ids</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t">
+<span id="_CPPv3N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="_CPPv2N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="faiss::knn_inner_products_by_idx__floatCP.floatCP.int64_tCP.s.s.s.s.s.floatP.int64_tP.int64_t"></span><span class="target" id="namespacefaiss_1ad88ef733c01a81533dce5cf5644e8a4f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">knn_inner_products_by_idx</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">subset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nsubset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">vals</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ld_ids</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss25knn_inner_products_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Find the max inner product neighbors for nx queries in a set of ny vectors indexed by ids. May be useful for re-ranking a pre-selected vector list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -621,8 +663,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t">
-<span id="_CPPv3N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="_CPPv2N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="faiss::knn_L2sqr_by_idx__floatCP.floatCP.int64_tCP.s.s.s.s.floatP.int64_tP.int64_t"></span><span class="target" id="namespacefaiss_1ad9f8bfff061aef572422312b0de793fd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">knn_L2sqr_by_idx</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">subset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nsubset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">vals</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ld_subset</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t">
+<span id="_CPPv3N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="_CPPv2N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t"></span><span id="faiss::knn_L2sqr_by_idx__floatCP.floatCP.int64_tCP.s.s.s.s.s.floatP.int64_tP.int64_t"></span><span class="target" id="namespacefaiss_1ad7b3cea341840095293ff9e89dd756c1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">knn_L2sqr_by_idx</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">y</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">subset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nsubset</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">vals</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ids</span></span>, <span class="n"><span class="pre">int64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ld_subset</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16knn_L2sqr_by_idxEPKfPKfPK7int64_t6size_t6size_t6size_t6size_t6size_tPfP7int64_t7int64_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Find the nearest neighbors for nx queries in a set of ny vectors indexed by ids. May be useful for re-ranking a pre-selected vector list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -663,6 +705,33 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss27compute_PQ_dis_tables_dsub2E6size_t6size_tPKf6size_tPKfbPf">
 <span id="_CPPv3N5faiss27compute_PQ_dis_tables_dsub2E6size_t6size_tPKf6size_tPKfbPf"></span><span id="_CPPv2N5faiss27compute_PQ_dis_tables_dsub2E6size_t6size_tPKf6size_tPKfbPf"></span><span id="faiss::compute_PQ_dis_tables_dsub2__s.s.floatCP.s.floatCP.b.floatP"></span><span class="target" id="namespacefaiss_1a6bae4e24e73c75640d6db8760e513d6d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">compute_PQ_dis_tables_dsub2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">d</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ksub</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">centroids</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_inner_product</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dis_tables</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss27compute_PQ_dis_tables_dsub2E6size_t6size_tPKf6size_tPKfbPf" title="Permalink to this definition"></a><br /></dt>
 <dd><p>specialized function for PQ2 </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss9fvec_maddE6size_tPKffPKfPf">
+<span id="_CPPv3N5faiss9fvec_maddE6size_tPKffPKfPf"></span><span id="_CPPv2N5faiss9fvec_maddE6size_tPKffPKfPf"></span><span id="faiss::fvec_madd__s.floatCP.float.floatCP.floatP"></span><span class="target" id="namespacefaiss_1a40328c31abd0bbba5bd95d7de951e847"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fvec_madd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">a</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bf</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">b</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">c</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss9fvec_maddE6size_tPKffPKfPf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>compute c := a + bf * b for a, b and c tables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – size of the tables </p></li>
+<li><p><strong>a</strong> – size n </p></li>
+<li><p><strong>b</strong> – size n </p></li>
+<li><p><strong>c</strong> – restult table, size n </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss20fvec_madd_and_argminE6size_tPKffPKfPf">
+<span id="_CPPv3N5faiss20fvec_madd_and_argminE6size_tPKffPKfPf"></span><span id="_CPPv2N5faiss20fvec_madd_and_argminE6size_tPKffPKfPf"></span><span id="faiss::fvec_madd_and_argmin__s.floatCP.float.floatCP.floatP"></span><span class="target" id="namespacefaiss_1a9da63b8bb84460f5e8ccf8e17622cc7a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fvec_madd_and_argmin</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">a</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bf</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">b</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">c</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss20fvec_madd_and_argminE6size_tPKffPKfPf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>same as fvec_madd, also return index of the min of the result table </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index of the min of table c </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

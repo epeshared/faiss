@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Namespace faiss::gpu &mdash; Faiss  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+
+  
     <link rel="canonical" href="https://faiss.ai/cpp_api/namespace/namespacefaiss_1_1gpu.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -55,10 +57,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../filelist.html">File list</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../namespacelist.html">Namespace list</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss.html">Namespace faiss</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d137.html">Namespace faiss::&#64;137</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d153.html">Namespace faiss::&#64;153</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d154.html">Namespace faiss::&#64;154</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d155.html">Namespace faiss::&#64;155</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d131.html">Namespace faiss::&#64;131</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d140.html">Namespace faiss::&#64;140</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d156.html">Namespace faiss::&#64;156</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d158.html">Namespace faiss::&#64;158</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d159.html">Namespace faiss::&#64;159</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1_0d160.html">Namespace faiss::&#64;160</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1cppcontrib.html">Namespace faiss::cppcontrib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1cppcontrib_1_1_0d10.html">Namespace faiss::cppcontrib::&#64;10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1cppcontrib_1_1_0d12.html">Namespace faiss::cppcontrib::&#64;12</a></li>
@@ -75,8 +79,8 @@
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1nndescent.html">Namespace faiss::nndescent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1nsg.html">Namespace faiss::nsg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1quantize__lut.html">Namespace faiss::quantize_lut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1rq__encode__steps.html">Namespace faiss::rq_encode_steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1simd__result__handlers.html">Namespace faiss::simd_result_handlers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespacefaiss_1_1simd__result__handlers_1_1_0d71.html">Namespace faiss::simd_result_handlers::&#64;71</a></li>
 <li class="toctree-l2"><a class="reference internal" href="namespacestd.html">Namespace std</a></li>
 </ul>
 </li>
@@ -288,6 +292,12 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15should_use_raftE17GpuDistanceParams">
+<span id="_CPPv3N5faiss3gpu15should_use_raftE17GpuDistanceParams"></span><span id="_CPPv2N5faiss3gpu15should_use_raftE17GpuDistanceParams"></span><span id="faiss::gpu::should_use_raft__GpuDistanceParams"></span><span class="target" id="GpuDistance_8h_1a2cfc72202868622221a8b69ec9a788e4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">should_use_raft</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/GpuDistance_8h.html#_CPPv4N5faiss3gpu17GpuDistanceParamsE" title="faiss::gpu::GpuDistanceParams"><span class="n"><span class="pre">GpuDistanceParams</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>A function that determines whether RAFT should be used based on various conditions (such as unsupported architecture) </p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu5bfKnnEP20GpuResourcesProviderRK17GpuDistanceParams">
 <span id="_CPPv3N5faiss3gpu5bfKnnEP20GpuResourcesProviderRK17GpuDistanceParams"></span><span id="_CPPv2N5faiss3gpu5bfKnnEP20GpuResourcesProviderRK17GpuDistanceParams"></span><span id="faiss::gpu::bfKnn__GpuResourcesProviderP.GpuDistanceParamsCR"></span><span class="target" id="GpuDistance_8h_1a29928698b9b3bae60ff6f7e7d79e0354"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bfKnn</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResourcesProvider.html#_CPPv4N5faiss3gpu20GpuResourcesProviderE" title="faiss::gpu::GpuResourcesProvider"><span class="n"><span class="pre">GpuResourcesProvider</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">resources</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../file/GpuDistance_8h.html#_CPPv4N5faiss3gpu17GpuDistanceParamsE" title="faiss::gpu::GpuDistanceParams"><span class="n"><span class="pre">GpuDistanceParams</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>A wrapper for gpu/impl/Distance.cuh to expose direct brute-force k-nearest neighbor searches on an externally-provided region of memory (e.g., from a pytorch tensor). The data (vectors, queries, outDistances, outIndices) can be resident on the GPU or the CPU, but all calculations are performed on the GPU. If the result buffers are on the CPU, results will be copied back when done.</p>
@@ -304,6 +314,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu13bruteForceKnnEP20GpuResourcesProviderN5faiss10MetricTypeEPKfb5idx_tPKfb5idx_tiiPfP5idx_t">
 <span id="_CPPv3N5faiss3gpu13bruteForceKnnEP20GpuResourcesProviderN5faiss10MetricTypeEPKfb5idx_tPKfb5idx_tiiPfP5idx_t"></span><span id="_CPPv2N5faiss3gpu13bruteForceKnnEP20GpuResourcesProviderN5faiss10MetricTypeEPKfb5idx_tPKfb5idx_tiiPfP5idx_t"></span><span id="faiss::gpu::bruteForceKnn__GpuResourcesProviderP.faiss::MetricType.floatCP.b.idx_t.floatCP.b.idx_t.i.i.floatP.idx_tP"></span><span class="target" id="GpuDistance_8h_1ae2b4be0946d7ca9dbac7a03dbc6fd908"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bruteForceKnn</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResourcesProvider.html#_CPPv4N5faiss3gpu20GpuResourcesProviderE" title="faiss::gpu::GpuResourcesProvider"><span class="n"><span class="pre">GpuResourcesProvider</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">resources</span></span>, <a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss10MetricTypeE" title="faiss::MetricType"><span class="n"><span class="pre">MetricType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">metric</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">vectors</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vectorsRowMajor</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">numVectors</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">queries</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">queriesRowMajor</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">numQueries</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dims</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outDistances</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outIndices</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Deprecated legacy implementation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15should_use_raftE14GpuIndexConfig">
+<span id="_CPPv3N5faiss3gpu15should_use_raftE14GpuIndexConfig"></span><span id="_CPPv2N5faiss3gpu15should_use_raftE14GpuIndexConfig"></span><span id="faiss::gpu::should_use_raft__GpuIndexConfig"></span><span class="target" id="GpuIndex_8h_1a7c09e232a8ffdc821a88f88858351529"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">should_use_raft</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/GpuIndex_8h.html#_CPPv4N5faiss3gpu14GpuIndexConfigE" title="faiss::gpu::GpuIndexConfig"><span class="n"><span class="pre">GpuIndexConfig</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">config_</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>A centralized function that determines whether RAFT should be used based on various conditions (such as unsupported architecture) </p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -389,11 +405,6 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15packInterleavedENSt6vectorI7uint8_tEEiii">
 <span id="_CPPv3N5faiss3gpu15packInterleavedENSt6vectorI7uint8_tEEiii"></span><span id="_CPPv2N5faiss3gpu15packInterleavedENSt6vectorI7uint8_tEEiii"></span><span id="faiss::gpu::packInterleaved__std::vector:uint8_t:.i.i.i"></span><span class="target" id="InterleavedCodes_8h_1ac7600011e96df9221930dcdfa0c790f5"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">packInterleaved</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numVecs</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dims</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bitsPerCode</span></span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu13faiss_to_raftE10MetricTypeb">
-<span id="_CPPv3N5faiss3gpu13faiss_to_raftE10MetricTypeb"></span><span id="_CPPv2N5faiss3gpu13faiss_to_raftE10MetricTypeb"></span><span id="faiss::gpu::faiss_to_raft__MetricType.b"></span><span class="target" id="RaftUtils_8h_1aac52425937fe60ea6a3fa57363ea5f33"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">raft</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DistanceType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">faiss_to_raft</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss10MetricTypeE" title="faiss::MetricType"><span class="n"><span class="pre">MetricType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">metric</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">exactDistance</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -626,6 +637,23 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu10streamWaitERKNSt16initializer_listI12cudaStream_tEERKNSt16initializer_listI12cudaStream_tEE">
 <span id="_CPPv3N5faiss3gpu10streamWaitERKNSt16initializer_listI12cudaStream_tEERKNSt16initializer_listI12cudaStream_tEE"></span><span id="_CPPv2N5faiss3gpu10streamWaitERKNSt16initializer_listI12cudaStream_tEERKNSt16initializer_listI12cudaStream_tEE"></span><span id="faiss::gpu::streamWait__std::initializer_list:cudaStream_t:CR.std::initializer_list:cudaStream_t:CR"></span><span class="target" id="DeviceUtils_8h_1a0ef5a2acf5c02c590e5029c061f463d8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">streamWait</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">cudaStream_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">cudaStream_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu17metricFaissToRaftE10MetricTypeb">
+<span id="_CPPv3N5faiss3gpu17metricFaissToRaftE10MetricTypeb"></span><span id="_CPPv2N5faiss3gpu17metricFaissToRaftE10MetricTypeb"></span><span id="faiss::gpu::metricFaissToRaft__MetricType.b"></span><span class="target" id="RaftUtils_8h_1a09ddc3176b613dae5b8cd9a61c6b3d4f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">raft</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DistanceType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">metricFaissToRaft</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss10MetricTypeE" title="faiss::MetricType"><span class="n"><span class="pre">MetricType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">metric</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">exactDistance</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15validRowIndicesEP12GpuResourcesR6TensorIfXL2EEXL1EEEPb">
+<span id="_CPPv3N5faiss3gpu15validRowIndicesEP12GpuResourcesR6TensorIfXL2EEXL1EEEPb"></span><span id="_CPPv2N5faiss3gpu15validRowIndicesEP12GpuResourcesR6TensorIfX2EXtrueEEPb"></span><span id="faiss::gpu::validRowIndices__GpuResourcesP.Tensor:float.2.true:R.bP"></span><span class="target" id="RaftUtils_8h_1a96b52c4a7d364a661afad37f4a75adfb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">validRowIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResources.html#_CPPv4N5faiss3gpu12GpuResourcesE" title="faiss::gpu::GpuResources"><span class="n"><span class="pre">GpuResources</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">res</span></span>, <span class="n"><span class="pre">Tensor</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vecs</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">validRows</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Identify matrix rows containing non NaN values. validRows[i] is false if row i contains a NaN value and true otherwise. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu25inplaceGatherFilteredRowsEP12GpuResourcesR6TensorIfXL2EEXL1EEER6TensorI5idx_tXL1EEXL1EEE">
+<span id="_CPPv3N5faiss3gpu25inplaceGatherFilteredRowsEP12GpuResourcesR6TensorIfXL2EEXL1EEER6TensorI5idx_tXL1EEXL1EEE"></span><span id="_CPPv2N5faiss3gpu25inplaceGatherFilteredRowsEP12GpuResourcesR6TensorIfX2EXtrueEER6TensorI5idx_tX1EXtrueEE"></span><span id="faiss::gpu::inplaceGatherFilteredRows__GpuResourcesP.Tensor:float.2.true:R.Tensor:idx_t.1.true:R"></span><span class="target" id="RaftUtils_8h_1a3cc563a7cb538b461187b53cc29188ac"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inplaceGatherFilteredRows</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResources.html#_CPPv4N5faiss3gpu12GpuResourcesE" title="faiss::gpu::GpuResources"><span class="n"><span class="pre">GpuResources</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">res</span></span>, <span class="n"><span class="pre">Tensor</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vecs</span></span>, <span class="n"><span class="pre">Tensor</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">indices</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Filter out matrix rows containing NaN values. The vectors and indices are updated in-place. </p>
+</dd></dl>
 
 </div>
 <dl class="cpp struct">
@@ -874,6 +902,12 @@
 <dd><p>use the RAFT implementation </p>
 </dd></dl>
 
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu11ToGpuCloner23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu11ToGpuCloner23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu11ToGpuCloner23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::ToGpuCloner::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuClonerOptions_1adbb22b3815faa8ac1e8a49cc5b372791"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -995,6 +1029,12 @@
 <dd><p>use the RAFT implementation </p>
 </dd></dl>
 
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu19ToGpuClonerMultiple23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu19ToGpuClonerMultiple23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu19ToGpuClonerMultiple23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::ToGpuClonerMultiple::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuClonerOptions_1adbb22b3815faa8ac1e8a49cc5b372791"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -1105,6 +1145,12 @@
 <dd><p>use the RAFT implementation </p>
 </dd></dl>
 
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu16GpuClonerOptions23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu16GpuClonerOptions23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu16GpuClonerOptions23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuClonerOptions::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuClonerOptions_1adbb22b3815faa8ac1e8a49cc5b372791"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -1178,6 +1224,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu24GpuMultipleClonerOptions8use_raftE">
 <span id="_CPPv3N5faiss3gpu24GpuMultipleClonerOptions8use_raftE"></span><span id="_CPPv2N5faiss3gpu24GpuMultipleClonerOptions8use_raftE"></span><span id="faiss::gpu::GpuMultipleClonerOptions::use_raft__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuClonerOptions_1a2b122581d7bd84da484fb7c4902052ef"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">use_raft</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
 <dd><p>use the RAFT implementation </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu24GpuMultipleClonerOptions23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu24GpuMultipleClonerOptions23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu24GpuMultipleClonerOptions23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuMultipleClonerOptions::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuClonerOptions_1adbb22b3815faa8ac1e8a49cc5b372791"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
 </dd></dl>
 
 </div>
@@ -1295,7 +1347,7 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu17GpuDistanceParams8use_raftE">
 <span id="_CPPv3N5faiss3gpu17GpuDistanceParams8use_raftE"></span><span id="_CPPv2N5faiss3gpu17GpuDistanceParams8use_raftE"></span><span id="faiss::gpu::GpuDistanceParams::use_raft__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuDistanceParams_1aa826c25b4d2055e0ea8334d559ac677b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">use_raft</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
-<dd><p>Should the index dispatch down to RAFT? </p>
+<dd><p>Should the index dispatch down to RAFT? TODO: change default to true if RAFT is enabled </p>
 </dd></dl>
 
 </div>
@@ -1551,6 +1603,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -1609,7 +1662,11 @@
 <p>this function may not be defined for some indexes </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recons</strong> – reconstucted vector (size ni * d) </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i0</strong> – index of the first vector in the sequence </p></li>
+<li><p><strong>ni</strong> – number of vectors in the sequence </p></li>
+<li><p><strong>recons</strong> – reconstucted vector (size ni * d) </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -2329,6 +2386,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -2694,6 +2752,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -3059,6 +3118,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -3260,6 +3320,12 @@
 </dd></dl>
 
 <dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu17GpuIndexIVFConfig23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu17GpuIndexIVFConfig23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu17GpuIndexIVFConfig23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuIndexIVFConfig::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a9ad7e2e02e0577e31968c539e499fe00"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
+</dd></dl>
+
+<dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu17GpuIndexIVFConfig6deviceE">
 <span id="_CPPv3N5faiss3gpu17GpuIndexIVFConfig6deviceE"></span><span id="_CPPv2N5faiss3gpu17GpuIndexIVFConfig6deviceE"></span><span id="faiss::gpu::GpuIndexIVFConfig::device__i"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexConfig_1aab05a0aa7b42feae7df4e556a52ead57"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">device</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
 <dd><p>GPU device on which the index is resident. </p>
@@ -3339,25 +3405,25 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu11GpuIndexIVF11getNumListsEv">
-<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVF::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1aafb27dc3e3039abf1970cfa913b5ff8a"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVF::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1acfd050f996094ebc825829cf1c81c5b5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of inverted lists we’re managing. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu11GpuIndexIVF13getListLengthE5idx_t">
-<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVF::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6cc3e34375029fa2f12377ef90180a26"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVF::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ad1409460d5e0684ce2ea2191308f2ee1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of vectors present in a particular inverted list. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu11GpuIndexIVF17getListVectorDataE5idx_tb">
-<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVF::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a0e6070969779cdd79639da043f801182"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVF::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ae02e2f7a8a28f1c1f86ea7ab0bbd0afc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the encoded vector data contained in a particular inverted list, for debugging purposes. If gpuFormat is true, the data is returned as it is encoded in the GPU-side representation. Otherwise, it is converted to the CPU format. compliant format, while the native GPU format may differ. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu11GpuIndexIVF14getListIndicesE5idx_t">
-<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVF::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a1a523e6c23ca1cda4d760d6821c92486"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu11GpuIndexIVF14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu11GpuIndexIVF14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVF::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6da78180f9be266a8cb9dffcd47a8bad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the vector indices contained in a particular inverted list, for debugging purposes. </p>
 </dd></dl>
 
@@ -3490,6 +3556,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -3548,7 +3615,11 @@
 <p>this function may not be defined for some indexes </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recons</strong> – reconstucted vector (size ni * d) </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i0</strong> – index of the first vector in the sequence </p></li>
+<li><p><strong>ni</strong> – number of vectors in the sequence </p></li>
+<li><p><strong>recons</strong> – reconstucted vector (size ni * d) </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -3739,7 +3810,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu11GpuIndexIVF15trainQuantizer_E5idx_tPKf">
-<span id="_CPPv3N5faiss3gpu11GpuIndexIVF15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu11GpuIndexIVF15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVF::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a355196aa97f54b83a644c971322edfa0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N5faiss3gpu11GpuIndexIVF15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu11GpuIndexIVF15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVF::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ab22c31f717f03a091aafa1b61ad4e8be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -3832,6 +3903,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu21GpuIndexIVFFlatConfig10flatConfigE">
 <span id="_CPPv3N5faiss3gpu21GpuIndexIVFFlatConfig10flatConfigE"></span><span id="_CPPv2N5faiss3gpu21GpuIndexIVFFlatConfig10flatConfigE"></span><span id="faiss::gpu::GpuIndexIVFFlatConfig::flatConfig__GpuIndexFlatConfig"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a6d357a9a67a2fed9c8e7b139712d30f6"></span><a class="reference internal" href="../file/GpuIndexFlat_8h.html#_CPPv4N5faiss3gpu18GpuIndexFlatConfigE" title="faiss::gpu::GpuIndexFlatConfig"><span class="n"><span class="pre">GpuIndexFlatConfig</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flatConfig</span></span></span><br /></dt>
 <dd><p>Configuration for the coarse quantizer object. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu21GpuIndexIVFFlatConfig23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu21GpuIndexIVFFlatConfig23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu21GpuIndexIVFFlatConfig23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuIndexIVFFlatConfig::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a9ad7e2e02e0577e31968c539e499fe00"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -3942,6 +4019,22 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf">
+<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf"></span><span id="faiss::gpu::GpuIndexIVFFlat::reconstruct_n__idx_t.idx_t.floatPC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVFFlat_1ab95cbd3b7e87771c72c1e166a9caef2a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reconstruct_n</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i0</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Reconstruct vectors i0 to i0 + ni - 1</p>
+<p>this function may not be defined for some indexes </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i0</strong> – index of the first vector in the sequence </p></li>
+<li><p><strong>ni</strong> – number of vectors in the sequence </p></li>
+<li><p><strong>recons</strong> – reconstucted vector (size ni * d) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss8IndexIVFE">
 <span id="_CPPv3N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss8IndexIVFE"></span><span id="_CPPv2N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss8IndexIVFE"></span><span id="faiss::gpu::GpuIndexIVFFlat::copyFrom__faiss::IndexIVFCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a94c2c171f9a2d27085dea9101067bdf2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copyFrom</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/IndexIVF_8h.html#_CPPv4N5faiss8IndexIVFE" title="faiss::IndexIVF"><span class="n"><span class="pre">IndexIVF</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Copy what we need from the CPU equivalent. </p>
@@ -3955,25 +4048,25 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat11getNumListsEv">
-<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFFlat::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1aafb27dc3e3039abf1970cfa913b5ff8a"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFFlat::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1acfd050f996094ebc825829cf1c81c5b5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of inverted lists we’re managing. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat13getListLengthE5idx_t">
-<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6cc3e34375029fa2f12377ef90180a26"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ad1409460d5e0684ce2ea2191308f2ee1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of vectors present in a particular inverted list. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat17getListVectorDataE5idx_tb">
-<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a0e6070969779cdd79639da043f801182"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ae02e2f7a8a28f1c1f86ea7ab0bbd0afc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the encoded vector data contained in a particular inverted list, for debugging purposes. If gpuFormat is true, the data is returned as it is encoded in the GPU-side representation. Otherwise, it is converted to the CPU format. compliant format, while the native GPU format may differ. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat14getListIndicesE5idx_t">
-<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a1a523e6c23ca1cda4d760d6821c92486"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFFlat::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6da78180f9be266a8cb9dffcd47a8bad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the vector indices contained in a particular inverted list, for debugging purposes. </p>
 </dd></dl>
 
@@ -4092,6 +4185,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -4133,18 +4227,6 @@
 <li><p><strong>keys</strong> – ids of the vectors to reconstruct (size n) </p></li>
 <li><p><strong>recons</strong> – reconstucted vector (size n * d) </p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf">
-<span id="_CPPv3NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf"></span><span id="_CPPv2NK5faiss3gpu15GpuIndexIVFFlat13reconstruct_nE5idx_t5idx_tPf"></span><span id="faiss::gpu::GpuIndexIVFFlat::reconstruct_n__idx_t.idx_t.floatPC"></span><span class="target" id="structfaiss_1_1Index_1ae7c0b683e1fd5c8770ea2b3e1a82ce7f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reconstruct_n</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i0</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ni</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">recons</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
-<dd><p>Reconstruct vectors i0 to i0 + ni - 1</p>
-<p>this function may not be defined for some indexes </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recons</strong> – reconstucted vector (size ni * d) </p>
 </dd>
 </dl>
 </dd></dl>
@@ -4317,6 +4399,17 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15GpuIndexIVFFlat9setIndex_EP12GpuResourcesiiN5faiss10MetricTypeEfbPN5faiss15ScalarQuantizerEb14IndicesOptions11MemorySpace">
+<span id="_CPPv3N5faiss3gpu15GpuIndexIVFFlat9setIndex_EP12GpuResourcesiiN5faiss10MetricTypeEfbPN5faiss15ScalarQuantizerEb14IndicesOptions11MemorySpace"></span><span id="_CPPv2N5faiss3gpu15GpuIndexIVFFlat9setIndex_EP12GpuResourcesiiN5faiss10MetricTypeEfbPN5faiss15ScalarQuantizerEb14IndicesOptions11MemorySpace"></span><span id="faiss::gpu::GpuIndexIVFFlat::setIndex___GpuResourcesP.i.i.faiss::MetricType.float.b.faiss::ScalarQuantizerP.b.IndicesOptions.MemorySpace"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVFFlat_1a1ce90695eccd0f370c41d2121935b194"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setIndex_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResources.html#_CPPv4N5faiss3gpu12GpuResourcesE" title="faiss::gpu::GpuResources"><span class="n"><span class="pre">GpuResources</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">resources</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dim</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nlist</span></span>, <a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss10MetricTypeE" title="faiss::MetricType"><span class="n"><span class="pre">MetricType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">metric</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">metricArg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">useResidual</span></span>, <a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/ScalarQuantizer_8h.html#_CPPv4N5faiss15ScalarQuantizerE" title="faiss::ScalarQuantizer"><span class="n"><span class="pre">ScalarQuantizer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">scalarQ</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">interleavedLayout</span></span>, <a class="reference internal" href="../file/GpuIndicesOptions_8h.html#_CPPv4N5faiss3gpu14IndicesOptionsE" title="faiss::gpu::IndicesOptions"><span class="n"><span class="pre">IndicesOptions</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">indicesOptions</span></span>, <a class="reference internal" href="../file/GpuResources_8h.html#_CPPv4N5faiss3gpu11MemorySpaceE" title="faiss::gpu::MemorySpace"><span class="n"><span class="pre">MemorySpace</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">space</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialize appropriate index. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalarQ</strong> – Optional <a class="reference internal" href="../struct/structfaiss_1_1ScalarQuantizer.html#structfaiss_1_1ScalarQuantizer"><span class="std std-ref">ScalarQuantizer</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss5IndexE">
 <span id="_CPPv3N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss5IndexE"></span><span id="_CPPv2N5faiss3gpu15GpuIndexIVFFlat8copyFromEPKN5faiss5IndexE"></span><span id="faiss::gpu::GpuIndexIVFFlat::copyFrom__faiss::IndexCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndex_1a9d1657c6a28e0581b3bc96699e12a2ab"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copyFrom</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/Index_8h.html#_CPPv4N5faiss5IndexE" title="faiss::Index"><span class="n"><span class="pre">Index</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Copy what we need from the CPU equivalent. </p>
@@ -4347,7 +4440,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu15GpuIndexIVFFlat15trainQuantizer_E5idx_tPKf">
-<span id="_CPPv3N5faiss3gpu15GpuIndexIVFFlat15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu15GpuIndexIVFFlat15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFFlat::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a355196aa97f54b83a644c971322edfa0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N5faiss3gpu15GpuIndexIVFFlat15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu15GpuIndexIVFFlat15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFFlat::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ab22c31f717f03a091aafa1b61ad4e8be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -4436,7 +4529,7 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu19GpuIndexIVFPQConfig17interleavedLayoutE">
 <span id="_CPPv3N5faiss3gpu19GpuIndexIVFPQConfig17interleavedLayoutE"></span><span id="_CPPv2N5faiss3gpu19GpuIndexIVFPQConfig17interleavedLayoutE"></span><span id="faiss::gpu::GpuIndexIVFPQConfig::interleavedLayout__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFPQConfig_1a3698bd46d5a0003ec43d434a58794532"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interleavedLayout</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
-<dd><p>Use the alternative memory layout for the IVF lists WARNING: this is a feature under development, do not use! </p>
+<dd><p>Use the alternative memory layout for the IVF lists WARNING: this is a feature under development, and is only supported with RAFT enabled for the index. Do not use if RAFT is not enabled. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -4456,6 +4549,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu19GpuIndexIVFPQConfig10flatConfigE">
 <span id="_CPPv3N5faiss3gpu19GpuIndexIVFPQConfig10flatConfigE"></span><span id="_CPPv2N5faiss3gpu19GpuIndexIVFPQConfig10flatConfigE"></span><span id="faiss::gpu::GpuIndexIVFPQConfig::flatConfig__GpuIndexFlatConfig"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a6d357a9a67a2fed9c8e7b139712d30f6"></span><a class="reference internal" href="../file/GpuIndexFlat_8h.html#_CPPv4N5faiss3gpu18GpuIndexFlatConfigE" title="faiss::gpu::GpuIndexFlatConfig"><span class="n"><span class="pre">GpuIndexFlatConfig</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flatConfig</span></span></span><br /></dt>
 <dd><p>Configuration for the coarse quantizer object. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu19GpuIndexIVFPQConfig23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu19GpuIndexIVFPQConfig23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu19GpuIndexIVFPQConfig23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuIndexIVFPQConfig::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a9ad7e2e02e0577e31968c539e499fe00"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -4609,25 +4708,25 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu13GpuIndexIVFPQ11getNumListsEv">
-<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFPQ::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1aafb27dc3e3039abf1970cfa913b5ff8a"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFPQ::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1acfd050f996094ebc825829cf1c81c5b5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of inverted lists we’re managing. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu13GpuIndexIVFPQ13getListLengthE5idx_t">
-<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6cc3e34375029fa2f12377ef90180a26"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ad1409460d5e0684ce2ea2191308f2ee1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of vectors present in a particular inverted list. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu13GpuIndexIVFPQ17getListVectorDataE5idx_tb">
-<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a0e6070969779cdd79639da043f801182"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ae02e2f7a8a28f1c1f86ea7ab0bbd0afc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the encoded vector data contained in a particular inverted list, for debugging purposes. If gpuFormat is true, the data is returned as it is encoded in the GPU-side representation. Otherwise, it is converted to the CPU format. compliant format, while the native GPU format may differ. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu13GpuIndexIVFPQ14getListIndicesE5idx_t">
-<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a1a523e6c23ca1cda4d760d6821c92486"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFPQ::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6da78180f9be266a8cb9dffcd47a8bad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the vector indices contained in a particular inverted list, for debugging purposes. </p>
 </dd></dl>
 
@@ -4746,6 +4845,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -4798,7 +4898,11 @@
 <p>this function may not be defined for some indexes </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recons</strong> – reconstucted vector (size ni * d) </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i0</strong> – index of the first vector in the sequence </p></li>
+<li><p><strong>ni</strong> – number of vectors in the sequence </p></li>
+<li><p><strong>recons</strong> – reconstucted vector (size ni * d) </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -4977,6 +5081,12 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu13GpuIndexIVFPQ9setIndex_EP12GpuResourcesi5idx_tN5faiss10MetricTypeEfiibbbPf14IndicesOptions11MemorySpace">
+<span id="_CPPv3N5faiss3gpu13GpuIndexIVFPQ9setIndex_EP12GpuResourcesi5idx_tN5faiss10MetricTypeEfiibbbPf14IndicesOptions11MemorySpace"></span><span id="_CPPv2N5faiss3gpu13GpuIndexIVFPQ9setIndex_EP12GpuResourcesi5idx_tN5faiss10MetricTypeEfiibbbPf14IndicesOptions11MemorySpace"></span><span id="faiss::gpu::GpuIndexIVFPQ::setIndex___GpuResourcesP.i.idx_t.faiss::MetricType.float.i.i.b.b.b.floatP.IndicesOptions.MemorySpace"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVFPQ_1a2ff7d6ec03863a7ecb048b06faf6100e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setIndex_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../class/classfaiss_1_1gpu_1_1GpuResources.html#_CPPv4N5faiss3gpu12GpuResourcesE" title="faiss::gpu::GpuResources"><span class="n"><span class="pre">GpuResources</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">resources</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dim</span></span>, <a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">nlist</span></span>, <a class="reference internal" href="../file/AdditiveQuantizer_8h.html#_CPPv45faiss" title="faiss"><span class="n"><span class="pre">faiss</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss10MetricTypeE" title="faiss::MetricType"><span class="n"><span class="pre">MetricType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">metric</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">metricArg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numSubQuantizers</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bitsPerSubQuantizer</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">useFloat16LookupTables</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">useMMCodeDistance</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">interleavedLayout</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pqCentroidData</span></span>, <a class="reference internal" href="../file/GpuIndicesOptions_8h.html#_CPPv4N5faiss3gpu14IndicesOptionsE" title="faiss::gpu::IndicesOptions"><span class="n"><span class="pre">IndicesOptions</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">indicesOptions</span></span>, <a class="reference internal" href="../file/GpuResources_8h.html#_CPPv4N5faiss3gpu11MemorySpaceE" title="faiss::gpu::MemorySpace"><span class="n"><span class="pre">MemorySpace</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">space</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialize appropriate index. </p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu13GpuIndexIVFPQ17verifyPQSettings_Ev">
 <span id="_CPPv3NK5faiss3gpu13GpuIndexIVFPQ17verifyPQSettings_Ev"></span><span id="_CPPv2NK5faiss3gpu13GpuIndexIVFPQ17verifyPQSettings_Ev"></span><span id="faiss::gpu::GpuIndexIVFPQ::verifyPQSettings_C"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVFPQ_1aa2ffc3990536d39f4ced8201d4438793"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">verifyPQSettings_</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Throws errors if configuration settings are improper. </p>
@@ -5019,7 +5129,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu13GpuIndexIVFPQ15trainQuantizer_E5idx_tPKf">
-<span id="_CPPv3N5faiss3gpu13GpuIndexIVFPQ15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu13GpuIndexIVFPQ15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFPQ::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a355196aa97f54b83a644c971322edfa0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N5faiss3gpu13GpuIndexIVFPQ15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu13GpuIndexIVFPQ15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFPQ::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ab22c31f717f03a091aafa1b61ad4e8be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -5127,6 +5237,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig10flatConfigE">
 <span id="_CPPv3N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig10flatConfigE"></span><span id="_CPPv2N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig10flatConfigE"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizerConfig::flatConfig__GpuIndexFlatConfig"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a6d357a9a67a2fed9c8e7b139712d30f6"></span><a class="reference internal" href="../file/GpuIndexFlat_8h.html#_CPPv4N5faiss3gpu18GpuIndexFlatConfigE" title="faiss::gpu::GpuIndexFlatConfig"><span class="n"><span class="pre">GpuIndexFlatConfig</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flatConfig</span></span></span><br /></dt>
 <dd><p>Configuration for the coarse quantizer object. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig23allowCpuCoarseQuantizerE">
+<span id="_CPPv3N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig23allowCpuCoarseQuantizerE"></span><span id="_CPPv2N5faiss3gpu32GpuIndexIVFScalarQuantizerConfig23allowCpuCoarseQuantizerE"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizerConfig::allowCpuCoarseQuantizer__b"></span><span class="target" id="structfaiss_1_1gpu_1_1GpuIndexIVFConfig_1a9ad7e2e02e0577e31968c539e499fe00"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">allowCpuCoarseQuantizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>This flag controls the CPU fallback logic for coarse quantizer component of the index. When set to false (default), the cloner will throw an exception for indices not implemented on GPU. When set to true, it will fallback to a CPU implementation. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -5250,25 +5366,25 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu26GpuIndexIVFScalarQuantizer11getNumListsEv">
-<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1aafb27dc3e3039abf1970cfa913b5ff8a"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer11getNumListsEv"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer11getNumListsEv"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getNumListsC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1acfd050f996094ebc825829cf1c81c5b5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNumLists</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of inverted lists we’re managing. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu26GpuIndexIVFScalarQuantizer13getListLengthE5idx_t">
-<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6cc3e34375029fa2f12377ef90180a26"></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer13getListLengthE5idx_t"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer13getListLengthE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListLength__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ad1409460d5e0684ce2ea2191308f2ee1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Returns the number of vectors present in a particular inverted list. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu26GpuIndexIVFScalarQuantizer17getListVectorDataE5idx_tb">
-<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a0e6070969779cdd79639da043f801182"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer17getListVectorDataE5idx_tb"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer17getListVectorDataE5idx_tb"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListVectorData__idx_t.bC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ae02e2f7a8a28f1c1f86ea7ab0bbd0afc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVectorData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gpuFormat</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the encoded vector data contained in a particular inverted list, for debugging purposes. If gpuFormat is true, the data is returned as it is encoded in the GPU-side representation. Otherwise, it is converted to the CPU format. compliant format, while the native GPU format may differ. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK5faiss3gpu26GpuIndexIVFScalarQuantizer14getListIndicesE5idx_t">
-<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a1a523e6c23ca1cda4d760d6821c92486"></span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<span id="_CPPv3NK5faiss3gpu26GpuIndexIVFScalarQuantizer14getListIndicesE5idx_t"></span><span id="_CPPv2NK5faiss3gpu26GpuIndexIVFScalarQuantizer14getListIndicesE5idx_t"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::getListIndices__idx_tC"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a6da78180f9be266a8cb9dffcd47a8bad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="namespacestd.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListIndices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">listId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
 <dd><p>Return the vector indices contained in a particular inverted list, for debugging purposes. </p>
 </dd></dl>
 
@@ -5387,6 +5503,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of vectors </p></li>
 <li><p><strong>x</strong> – input vectors to search, size n * d </p></li>
 <li><p><strong>radius</strong> – search radius </p></li>
 <li><p><strong>result</strong> – result table </p></li>
@@ -5439,7 +5556,11 @@
 <p>this function may not be defined for some indexes </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recons</strong> – reconstucted vector (size ni * d) </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i0</strong> – index of the first vector in the sequence </p></li>
+<li><p><strong>ni</strong> – number of vectors in the sequence </p></li>
+<li><p><strong>recons</strong> – reconstucted vector (size ni * d) </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -5666,7 +5787,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N5faiss3gpu26GpuIndexIVFScalarQuantizer15trainQuantizer_E5idx_tPKf">
-<span id="_CPPv3N5faiss3gpu26GpuIndexIVFScalarQuantizer15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu26GpuIndexIVFScalarQuantizer15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1a355196aa97f54b83a644c971322edfa0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N5faiss3gpu26GpuIndexIVFScalarQuantizer15trainQuantizer_E5idx_tPKf"></span><span id="_CPPv2N5faiss3gpu26GpuIndexIVFScalarQuantizer15trainQuantizer_E5idx_tPKf"></span><span id="faiss::gpu::GpuIndexIVFScalarQuantizer::trainQuantizer___idx_t.floatCP"></span><span class="target" id="classfaiss_1_1gpu_1_1GpuIndexIVF_1ab22c31f717f03a091aafa1b61ad4e8be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trainQuantizer_</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../file/MetricType_8h.html#_CPPv4N5faiss5idx_tE" title="faiss::idx_t"><span class="n"><span class="pre">idx_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
