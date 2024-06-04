@@ -395,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AdditiveQuantizer.h" line="52" column="14"/>
+        <location file="faiss/impl/AdditiveQuantizer.h" line="53" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1AdditiveQuantizer_1a9f6fdbed02275fe908ac219c022fc859" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -413,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AdditiveQuantizer.h" line="55" column="11"/>
+        <location file="faiss/impl/AdditiveQuantizer.h" line="56" column="11"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1AdditiveQuantizer_1ae76396a513113650fb2f579cf9899607" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

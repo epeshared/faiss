@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="19" column="11" bodyfile="faiss/IndexRefine.h" bodystart="19" bodyend="-1"/>
+        <location file="faiss/IndexRefine.h" line="26" column="11" bodyfile="faiss/IndexRefine.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1IndexRefine_1a226cf986bc8653321a4a10e6f93e5e88" prot="public" static="no" mutable="no">
         <type><ref refid="structfaiss_1_1Index" kindref="compound">Index</ref> *</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="22" column="11" bodyfile="faiss/IndexRefine.h" bodystart="22" bodyend="-1"/>
+        <location file="faiss/IndexRefine.h" line="29" column="11" bodyfile="faiss/IndexRefine.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1IndexRefine_1ae7f472c54df7253435355a4f65c3f479" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="24" column="10" bodyfile="faiss/IndexRefine.h" bodystart="24" bodyend="-1"/>
+        <location file="faiss/IndexRefine.h" line="31" column="10" bodyfile="faiss/IndexRefine.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1IndexRefine_1a40b4d1cbf95190426fce28a63179e678" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="25" column="10" bodyfile="faiss/IndexRefine.h" bodystart="25" bodyend="-1"/>
+        <location file="faiss/IndexRefine.h" line="32" column="10" bodyfile="faiss/IndexRefine.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1IndexRefine_1a520e756ea6610d94edb3fe34c31869cc" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="29" column="11" bodyfile="faiss/IndexRefine.h" bodystart="29" bodyend="-1"/>
+        <location file="faiss/IndexRefine.h" line="36" column="11" bodyfile="faiss/IndexRefine.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1Index_1a2a002388d2c081c2dbab8508dcefe73d" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="32" column="5"/>
+        <location file="faiss/IndexRefine.h" line="39" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a80aa8975ad0091a1d0796e092b4734be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="34" column="5"/>
+        <location file="faiss/IndexRefine.h" line="41" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a759db97766dcfe29c162e3339d68bd7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="36" column="10"/>
+        <location file="faiss/IndexRefine.h" line="43" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a0801c6b9554ce88deb63b72f9e28f7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -259,6 +259,14 @@
 <para>Add n vectors of dimension d to the index.</para>
 <para>Vectors are implicitly assigned labels ntotal .. ntotal + n - 1 This function slices the input vectors in chunks smaller than blocksize_add and calls add_core. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -270,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="38" column="10"/>
+        <location file="faiss/IndexRefine.h" line="45" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1ad5a9963cdf57b3dec44e9e5204f86e42" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -285,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="40" column="10"/>
+        <location file="faiss/IndexRefine.h" line="47" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a3e058732a4f1c613319568d8f11bac4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -326,6 +334,14 @@
 <para>return at most k vectors. If there are not enough results for a query, the result array is padded with -1s.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -334,10 +350,10 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>labels</parametername>
+<parametername>k</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>output labels of the NNs, size n*k </para>
+<para>number of extracted vectors </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -348,12 +364,20 @@
 <para>output pairwise distances, size n*k </para>
 </parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output labels of the NNs, size n*k </para>
+</parameterdescription>
+</parameteritem>
 </parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="42" column="10"/>
+        <location file="faiss/IndexRefine.h" line="49" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a01356d39a4eda730517a295c2c7bb869" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -394,7 +418,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="51" column="10"/>
+        <location file="faiss/IndexRefine.h" line="58" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a4f4fa1a53bd9603ea000e556cbd6940f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>size_t</type>
@@ -409,7 +433,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="55" column="12"/>
+        <location file="faiss/IndexRefine.h" line="62" column="12"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1a8f7cc71fbded7eaf35bcccf41603085d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -462,7 +486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="57" column="10"/>
+        <location file="faiss/IndexRefine.h" line="64" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1acff97ef10e27f43dc72f5faa21c67a4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -489,7 +513,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="61" column="10"/>
+        <location file="faiss/IndexRefine.h" line="68" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1IndexRefine_1abe2783095540eff63ece8a3bfe7f60b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -502,7 +526,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexRefine.h" line="63" column="5"/>
+        <location file="faiss/IndexRefine.h" line="70" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a13b30ab195baded94b6db98d8e111ed7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -534,6 +558,22 @@
 <para>The default implementation fails with an assertion, as it is not supported by all indexes.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input vectors, size n * d </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>xids</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -545,7 +585,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="113" column="18"/>
+        <location file="faiss/Index.h" line="116" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a5d69b1965b4cd9d11a57222dfc89b7ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -553,6 +593,7 @@
         <argsstring>(idx_t n, const float *x, float radius, RangeSearchResult *result, const SearchParameters *params=nullptr) const</argsstring>
         <name>range_search</name>
         <reimplementedby refid="structfaiss_1_1IndexFlat_1af3c56bae3b28baeb3e50aed74006a319">range_search</reimplementedby>
+        <reimplementedby refid="structfaiss_1_1IndexHNSW_1a1a8147a4071708c53967fde0dd294d4c">range_search</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexIVF_1a3c9714bf7fb9a2268ac4f3a46c286151">range_search</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexIVFFastScan_1a1f8213db15661df4339ec9ce4e2244a9">range_search</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexIVFFlatDedup_1a4a3599498e1c2d548836cc049056609e">range_search</reimplementedby>
@@ -585,6 +626,14 @@
 <para>return all vectors with distance &lt; radius. Note that many indexes do not implement the range_search (only the k-NN search is mandatory).</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -612,7 +661,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="142" column="18"/>
+        <location file="faiss/Index.h" line="148" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a010ae05c4ba70d309f9821d9b03182aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -643,6 +692,14 @@
 <para>return the indexes of the k vectors closest to the query x.</para>
 <para>This function is identical as search but only return labels of neighbors. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -657,12 +714,20 @@
 <para>output labels of the NNs, size n*k </para>
 </parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of nearest neighbours </para>
+</parameterdescription>
+</parameteritem>
 </parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="155" column="18"/>
+        <location file="faiss/Index.h" line="163" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1ab70f7d0acb4a2f22857da3b17559ae82" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>size_t</type>
@@ -686,7 +751,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="164" column="20"/>
+        <location file="faiss/Index.h" line="172" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a1dbf5eac7d05ca6271d2fd9bee568218" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -739,13 +804,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="181" column="18"/>
+        <location file="faiss/Index.h" line="189" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1ae7c0b683e1fd5c8770ea2b3e1a82ce7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>virtual void faiss::Index::reconstruct_n</definition>
         <argsstring>(idx_t i0, idx_t ni, float *recons) const</argsstring>
         <name>reconstruct_n</name>
+        <reimplementedby refid="classfaiss_1_1gpu_1_1GpuIndexIVFFlat_1ab95cbd3b7e87771c72c1e166a9caef2a">reconstruct_n</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexFlatCodes_1a166582b8b10fc86e77ce8c48854496f8">reconstruct_n</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexIVF_1a7cc286dfbd8bfd43ea4b22173e28231c">reconstruct_n</reimplementedby>
         <reimplementedby refid="structfaiss_1_1IndexPreTransform_1a02ebb27dd56aec9a93c50bd6b96184e7">reconstruct_n</reimplementedby>
@@ -768,6 +834,22 @@
 <para>Reconstruct vectors i0 to i0 + ni - 1</para>
 <para>this function may not be defined for some indexes <parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>i0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the first vector in the sequence </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ni</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors in the sequence </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>recons</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -779,7 +861,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="189" column="18"/>
+        <location file="faiss/Index.h" line="199" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1aed4bdbec95c0c3583e139f8e268ea0a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -825,6 +907,46 @@
 <para>If there are not enough results for a query, the resulting arrays is padded with -1s.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input vectors to search, size n * d </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of extracted vectors </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>distances</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output pairwise distances, size n*k </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output labels of the NNs, size n*k </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>recons</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -836,7 +958,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="199" column="18"/>
+        <location file="faiss/Index.h" line="214" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a1f12e2118b37a511f51d63e1aa9c0c20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -891,7 +1013,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="219" column="18"/>
+        <location file="faiss/Index.h" line="234" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1aff98fbf8e7dadf9ff528a031c53a43fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -958,7 +1080,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="235" column="18"/>
+        <location file="faiss/Index.h" line="250" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1ab53ef983521567c3dc3fee4543546e6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structfaiss_1_1DistanceComputer" kindref="compound">DistanceComputer</ref> *</type>
@@ -976,7 +1098,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="247" column="30"/>
+        <location file="faiss/Index.h" line="262" column="30"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a989b8815705e95d61adcb87380660415" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -1004,7 +1126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="274" column="18"/>
+        <location file="faiss/Index.h" line="289" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1Index_1a87b6300674be1e0a48210da998fb796e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -1026,7 +1148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/Index.h" line="279" column="18"/>
+        <location file="faiss/Index.h" line="294" column="18"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-type">
@@ -1096,7 +1218,7 @@
         <link refid="structfaiss_1_1Index"/>
       </node>
     </collaborationgraph>
-    <location file="faiss/IndexRefine.h" line="17" column="1" bodyfile="faiss/IndexRefine.h" bodystart="17" bodyend="64"/>
+    <location file="faiss/IndexRefine.h" line="24" column="1" bodyfile="faiss/IndexRefine.h" bodystart="24" bodyend="71"/>
     <listofallmembers>
       <member refid="structfaiss_1_1IndexRefine_1a0801c6b9554ce88deb63b72f9e28f7f1" prot="public" virt="virtual"><scope>faiss::IndexRefine</scope><name>add</name></member>
       <member refid="structfaiss_1_1Index_1a13b30ab195baded94b6db98d8e111ed7" prot="public" virt="virtual"><scope>faiss::IndexRefine</scope><name>add_with_ids</name></member>
