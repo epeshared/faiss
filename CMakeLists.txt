@@ -64,10 +64,12 @@ option(FAISS_GPU_STATIC "Link GPU libraries statically." OFF)
 option(FAISS_ENABLE_CUVS "Enable cuVS for GPU indexes." OFF)
 option(FAISS_ENABLE_ROCM "Enable ROCm for GPU indexes." OFF)
 option(FAISS_ENABLE_MKL "Enable MKL." ON)
+option(FAISS_ENABLE_ONEDNN "Enable ONEDNN." ON)
 option(FAISS_ENABLE_PYTHON "Build Python extension." ON)
 option(FAISS_ENABLE_C_API "Build C API." OFF)
 option(FAISS_ENABLE_EXTRAS "Build extras like benchmarks and demos" ON)
 option(FAISS_USE_LTO "Enable Link-Time optimization" OFF)
+
 
 if(FAISS_ENABLE_GPU)
   if(FAISS_ENABLE_ROCM)

@@ -574,6 +574,8 @@ void HNSW::add_with_locks(
 /**************************************************************
  * Searching
  **************************************************************/
+#include <typeinfo>
+#include <cxxabi.h>
 
 using MinimaxHeap = HNSW::MinimaxHeap;
 using Node = HNSW::Node;
@@ -653,7 +655,11 @@ int search_from_candidates(
         }
 
         int counter = 0;
+#ifdef ENABLE_DNNL
+        size_t saved_j[16];
+#else
         size_t saved_j[4];
+#endif    
 
         threshold = res.threshold;
 
@@ -671,12 +677,33 @@ int search_from_candidates(
 
         for (size_t j = begin; j < jmax; j++) {
             int v1 = hnsw.neighbors[j];
-
             bool vget = vt.get(v1);
             vt.set(v1);
             saved_j[counter] = v1;
             counter += vget ? 0 : 1;
 
+#ifdef ENABLE_DNNL
+            if (counter == 16) {
+                // const char* mangled = typeid(qdis).name();
+                // int status = 0;
+                // // demangle 成可读的类名
+                // char* demangled = abi::__cxa_demangle(mangled, nullptr, nullptr, &status);
+                // std::cout << "****** Concrete DistanceComputer: "
+                //           << (status == 0 ? demangled : mangled) << "Processing 16 neighbors"
+                //           << std::endl;
+                // free(demangled);                  
+
+                float dis[16];
+                qdis.distances_batch_16(saved_j, dis);
+
+                for (size_t id16 = 0; id16 < 16; id16++) {
+                    add_to_heap(saved_j[id16], dis[id16]);
+                }    
+                
+                ndis += 16;
+                counter = 0;                
+            } 
+#else            
             if (counter == 4) {
                 float dis[4];
                 qdis.distances_batch_4(
@@ -697,8 +724,9 @@ int search_from_candidates(
 
                 counter = 0;
             }
+#endif            
         }
-
+            
         for (size_t icnt = 0; icnt < counter; icnt++) {
             float dis = qdis(saved_j[icnt]);
             add_to_heap(saved_j[icnt], dis);

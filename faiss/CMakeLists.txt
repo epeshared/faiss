@@ -196,6 +196,7 @@ set(FAISS_HEADERS
   invlists/InvertedLists.h
   invlists/InvertedListsIOHook.h
   invlists/OnDiskInvertedLists.h
+  utils/onednn_utils.h
   utils/AlignedTable.h
   utils/bf16.h
   utils/Heap.h
@@ -406,6 +407,17 @@ else()
   target_link_libraries(faiss_avx512 PRIVATE ${LAPACK_LIBRARIES})
   target_link_libraries(faiss_avx512_spr PRIVATE ${LAPACK_LIBRARIES})
   target_link_libraries(faiss_sve PRIVATE ${LAPACK_LIBRARIES})
+endif()
+
+if(FAISS_ENABLE_ONEDNN)  
+  find_library(RT_LIB rt)
+  find_library(DNNL_LIB dnnl)
+  message(STATUS "Enabling ONEDNN support: ${DNNL_LIB}")
+  add_compile_definitions(ENABLE_DNNL)
+  target_link_libraries(faiss PRIVATE ${RT_LIB} ${DNNL_LIB})
+  target_link_libraries(faiss_avx2 PRIVATE ${RT_LIB} ${DNNL_LIB})
+  target_link_libraries(faiss_avx512 PRIVATE ${RT_LIB} ${DNNL_LIB})
+  target_link_libraries(faiss_avx512_spr PRIVATE ${RT_LIB} ${DNNL_LIB})
 endif()
 
 install(TARGETS faiss

@@ -17,6 +17,9 @@
 #include <faiss/utils/prefetch.h>
 #include <faiss/utils/sorting.h>
 #include <cstring>
+#include <faiss/utils/onednn_utils.h>
+#include <immintrin.h>
+
 
 namespace faiss {
 
@@ -223,6 +226,43 @@ struct FlatIPDis : FlatCodesDistanceComputer {
         dis2 = dp2;
         dis3 = dp3;
     }
+
+    void distances_batch_16(
+            const size_t* idx,
+            float* dis) final override {
+#if  defined(ENABLE_DNNL)  && defined(__AVX512F__)
+        float b_vec[16][d];
+        for (size_t i = 0; i < 16; i++) {
+            const float* src = reinterpret_cast<const float*>(codes + idx[i] * code_size);
+            float*       dst = b_vec[i];
+
+            // 每次搬 16 个 float（512 bit）
+            size_t blocks = d / 16;
+            for (size_t b = 0; b < blocks; ++b) {
+                __m512 v = _mm512_loadu_ps(src + b * 16);
+                _mm512_storeu_ps(dst + b * 16, v);
+            }
+
+            // 尾部不足 16 的部分，用标量拷贝
+            size_t rem = d % 16;
+            if (rem) {
+                size_t offset = blocks * 16;
+                for (size_t k = 0; k < rem; ++k) {
+                    dst[offset + k] = src[offset + k];
+                }
+            }
+        }
+        compute_f32bf16f32_inner_product(1, d, 16, d, const_cast<float*>(q), &b_vec[0][0], dis);
+#else
+        for (size_t i = 0; i < 16; i++) {
+            dis[i] = fvec_inner_product(
+                    q,
+                    reinterpret_cast<const float*>(codes + idx[i] * code_size),
+                    d);
+        }
+#endif        
+    }
+
 };
 
 } // namespace
