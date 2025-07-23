@@ -196,6 +196,7 @@ set(FAISS_HEADERS
   invlists/InvertedLists.h
   invlists/InvertedListsIOHook.h
   invlists/OnDiskInvertedLists.h
+  utils/amx_utils.h
   utils/onednn_utils.h
   utils/AlignedTable.h
   utils/bf16.h
@@ -275,7 +276,7 @@ endif()
 if(NOT WIN32)
   # All modern CPUs support F, CD, VL, DQ, BW extensions.
   # Ref: https://en.wikipedia.org/wiki/AVX512
-  target_compile_options(faiss_avx512 PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-mavx2 -mfma -mf16c -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mpopcnt>)
+  target_compile_options(faiss_avx512 PRIVATE $<$<COMPILE_LANGUAGE:CXX>: -mfma -mf16c -mavx512bf16 -flax-vector-conversions -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mpopcnt -mamx-bf16 -mamx-tile>)
 else()
   target_compile_options(faiss_avx512 PRIVATE $<$<COMPILE_LANGUAGE:CXX>:/arch:AVX512>)
   # we need bigobj for the swig wrapper
@@ -409,11 +410,11 @@ else()
   target_link_libraries(faiss_sve PRIVATE ${LAPACK_LIBRARIES})
 endif()
 
-if(FAISS_ENABLE_ONEDNN)  
+if(FAISS_ENABLE_AMX)  
   find_library(RT_LIB rt)
   find_library(DNNL_LIB dnnl)
   message(STATUS "Enabling ONEDNN support: ${DNNL_LIB}")
-  add_compile_definitions(ENABLE_DNNL)
+  add_compile_definitions(ENABLE_AMX)
   target_link_libraries(faiss PRIVATE ${RT_LIB} ${DNNL_LIB})
   target_link_libraries(faiss_avx2 PRIVATE ${RT_LIB} ${DNNL_LIB})
   target_link_libraries(faiss_avx512 PRIVATE ${RT_LIB} ${DNNL_LIB})

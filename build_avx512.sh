@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DFAISS_ENABLE_ONEDNN=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_TESTING=OFF  \
+cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DFAISS_ENABLE_AMX=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_TESTING=OFF  \
     -DCMAKE_BUILD_TYPE=Release -DFAISS_OPT_LEVEL=avx512 -DBLA_VENDOR=Intel10_64lp_dyn \
     "-DMKL_LIBRARIES=-Wl,--start-group;${MKL_PATH}/libmkl_intel_lp64.so;${MKL_PATH}/libmkl_gnu_thread.so;${MKL_PATH}/libmkl_core.so;-Wl,--end-group" \
     -DPython_EXECUTABLE=/root/miniforge3/${ENV_NAME}/bin/python3 \

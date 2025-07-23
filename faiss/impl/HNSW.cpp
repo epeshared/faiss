@@ -655,8 +655,9 @@ int search_from_candidates(
         }
 
         int counter = 0;
-#ifdef ENABLE_DNNL
-        size_t saved_j[16];
+#ifdef ENABLE_AMX
+        size_t stride = 16;
+        size_t saved_j[stride];
 #else
         size_t saved_j[4];
 #endif    
@@ -682,8 +683,8 @@ int search_from_candidates(
             saved_j[counter] = v1;
             counter += vget ? 0 : 1;
 
-#ifdef ENABLE_DNNL
-            if (counter == 16) {
+#ifdef ENABLE_AMX
+            if (counter == stride) {
                 // const char* mangled = typeid(qdis).name();
                 // int status = 0;
                 // // demangle 成可读的类名
@@ -693,14 +694,14 @@ int search_from_candidates(
                 //           << std::endl;
                 // free(demangled);                  
 
-                float dis[16];
-                qdis.distances_batch_16(saved_j, dis);
+                float dis[stride]={0};
+                qdis.distances_batch(saved_j, dis, stride);
 
-                for (size_t id16 = 0; id16 < 16; id16++) {
+                for (size_t id16 = 0; id16 < stride; id16++) {
                     add_to_heap(saved_j[id16], dis[id16]);
                 }    
                 
-                ndis += 16;
+                ndis += stride;
                 counter = 0;                
             } 
 #else            

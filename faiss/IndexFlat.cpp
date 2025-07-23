@@ -17,9 +17,11 @@
 #include <faiss/utils/prefetch.h>
 #include <faiss/utils/sorting.h>
 #include <cstring>
-#include <faiss/utils/onednn_utils.h>
 #include <immintrin.h>
-
+#if defined(ENABLE_AMX)
+#include <faiss/utils/onednn_utils.h>
+#include <faiss/utils/amx_utils.h>
+#endif
 
 namespace faiss {
 
@@ -227,32 +229,126 @@ struct FlatIPDis : FlatCodesDistanceComputer {
         dis3 = dp3;
     }
 
-    void distances_batch_16(
+    #if defined(__AVX512BF16__)
+    // #if defined(ENABLE_AMX) && defined(__AVX512F__)
+    /**
+     * @brief 批量把 f32 转成 bf16（使用 AVX-512 BF16 指令）
+     * @param src_base    源数据基地址（如 codes）
+     * @param dst         目标 bf16 缓冲区，长度 ≥ batch_size * dim
+     * @param idx         每行在 src_base 中的偏移索引数组，长度 batch_size
+     * @param batch_size  要转换的行数
+     * @param code_size   codes 中每条记录的字节长度
+     * @param dim         每行的浮点数维度
+     */
+    // static inline void convert_f32_to_bf16_avx512bf16(
+    //     const void*    src_base,
+    //     uint16_t*      dst,
+    //     const size_t*  idx,
+    //     size_t         batch_size,
+    //     size_t         code_size,
+    //     size_t         dim)
+    // {
+    //     for (size_t i = 0; i < batch_size; ++i) {
+    //         const float* src = nullptr;
+    //         if (idx) {
+    //             src = reinterpret_cast<const float*>(
+    //                 reinterpret_cast<const char*>(src_base) + idx[i] * code_size);
+    //         } else {
+    //             // 如果没有 idx，则直接从 src_base 开始
+    //             src = reinterpret_cast<const float*>(src_base);
+    //         }
+
+    //         uint16_t* dst_row = dst + i * dim;
+
+    //         size_t j = 0;
+    //         // 每 16 个 float → 16 个 bf16
+    //         __m256bh bf16v;
+    //         __m512  v;
+    //         for (; j + 16 <= dim; j += 16) {
+    //             // _mm_prefetch((const char*)(src + j + 64), _MM_HINT_T0);
+    //             v = _mm512_loadu_ps(src + j);
+    //             bf16v = _mm512_cvtneps_pbh(v);              // 返回 __m256bh
+    //             __m256i packed = (__m256i)bf16v;                     // 直接强制转换（需要 -flax-vector-conversions）
+    //             _mm256_storeu_si256((__m256i*)(dst_row + j), packed);
+    //         }
+    //         // 处理尾部（<16）
+    //         for (; j < dim; ++j) {
+    //             uint32_t bits = reinterpret_cast<const uint32_t*>(src)[j];
+    //             dst_row[j]    = static_cast<uint16_t>(bits >> 16);
+    //         }
+    //     }
+    // }
+
+    static inline void convert_f32_to_bf16_avx512bf16(
+        const void*    __restrict src_base,
+        uint16_t*      __restrict dst,
+        const size_t*  __restrict idx,
+        size_t                     batch_size,
+        size_t                     code_size,  // 单位：字节
+        size_t                     dim)
+    {
+        const char* base = reinterpret_cast<const char*>(src_base);
+        constexpr int PF_DIST = 64;
+
+        for (size_t i = 0; i < batch_size; ++i) {            
+            const float* src_ptr = idx
+                ? reinterpret_cast<const float*>(base + idx[i] * code_size)
+                : reinterpret_cast<const float*>(src_base);
+            uint16_t* dst_ptr = dst + i * dim;
+
+            size_t j = 0;
+            for (; j + 16 <= dim; j += 16) {
+                // _mm_prefetch(reinterpret_cast<const char*>(src_ptr + j + PF_DIST/sizeof(float)),
+                //             _MM_HINT_T0);
+                __m512   v  = _mm512_loadu_ps(src_ptr + j);
+                __m256bh bh = _mm512_cvtneps_pbh(v);
+                _mm256_storeu_si256(
+                    reinterpret_cast<__m256i*>(dst_ptr + j),
+                    ( __m256i)bh
+                );
+            }
+            for (; j < dim; ++j) {
+                uint32_t bits = reinterpret_cast<const uint32_t*>(src_ptr)[j];
+                dst_ptr[j]    = static_cast<uint16_t>(bits >> 16);
+            }
+        }        
+    }
+    #endif    
+
+    void distances_batch(
             const size_t* idx,
-            float* dis) final override {
-#if  defined(ENABLE_DNNL)  && defined(__AVX512F__)
-        float b_vec[16][d];
-        for (size_t i = 0; i < 16; i++) {
-            const float* src = reinterpret_cast<const float*>(codes + idx[i] * code_size);
-            float*       dst = b_vec[i];
+            float* dis, size_t stride) final override {
+#if  defined(ENABLE_AMX)  && defined(__AVX512F__)
+        ndis += stride;
 
-            // 每次搬 16 个 float（512 bit）
-            size_t blocks = d / 16;
-            for (size_t b = 0; b < blocks; ++b) {
-                __m512 v = _mm512_loadu_ps(src + b * 16);
-                _mm512_storeu_ps(dst + b * 16, v);
-            }
-
-            // 尾部不足 16 的部分，用标量拷贝
-            size_t rem = d % 16;
-            if (rem) {
-                size_t offset = blocks * 16;
-                for (size_t k = 0; k < rem; ++k) {
-                    dst[offset + k] = src[offset + k];
-                }
-            }
+        uint16_t b_vec[stride][d]={0};
+        convert_f32_to_bf16_avx512bf16(
+            codes,
+            &b_vec[0][0],
+            idx,
+            stride,
+            code_size,
+            d);
+        
+        uint16_t q_vec[d]={0};
+        convert_f32_to_bf16_avx512bf16(
+            q,
+            q_vec,
+            0,
+            1,
+            code_size,
+            d);
+        
+        void* b_ptrs[stride];
+        for (size_t i = 0; i < stride; ++i) {
+            b_ptrs[i] = (uint16_t*)b_vec[i];
         }
-        compute_f32bf16f32_inner_product(1, d, 16, d, const_cast<float*>(q), &b_vec[0][0], dis);
+
+        bf16_vec_inner_product_amx_ref(
+            reinterpret_cast<void**>(b_ptrs),
+            reinterpret_cast<void*>(q_vec),
+            &d,
+            stride, 1, dis);
 #else
         for (size_t i = 0; i < 16; i++) {
             dis[i] = fvec_inner_product(
