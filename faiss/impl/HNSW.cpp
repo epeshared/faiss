@@ -8,6 +8,10 @@
 #include <faiss/impl/HNSW.h>
 
 #include <cstddef>
+#include <map>
+#include <unordered_map>
+#include <cstdint>     // 如果你还没包含的话，需要这个来定义 uint16_t
+
 
 #include <faiss/impl/AuxIndexStructures.h>
 #include <faiss/impl/DistanceComputer.h>
@@ -609,7 +613,7 @@ int search_from_candidates(
 
     C::T threshold = res.threshold;
     for (int i = 0; i < candidates.size(); i++) {
-        idx_t v1 = candidates.ids[i];
+        idx_t v1 = candidates.ids[i];        
         float d = candidates.dis[i];
         FAISS_ASSERT(v1 >= 0);
         if (!sel || sel->is_member(v1)) {
@@ -624,6 +628,8 @@ int search_from_candidates(
 
     int nstep = 0;
 
+    static std::unordered_map<size_t, std::vector<uint16_t>> visited_bf_vec;
+    
     while (candidates.size() > 0) {
         float d0 = 0;
         int v0 = candidates.pop_min(&d0);
@@ -648,7 +654,7 @@ int search_from_candidates(
         for (size_t j = begin; j < end; j++) {
             int v1 = hnsw.neighbors[j];
             if (v1 < 0)
-                break;
+                break;            
 
             prefetch_L2(vt.visited.data() + v1);
             jmax += 1;
@@ -657,7 +663,7 @@ int search_from_candidates(
         int counter = 0;
 #ifdef ENABLE_AMX
         size_t stride = 16;
-        size_t saved_j[stride];
+        alignas(64) size_t saved_j[stride];
 #else
         size_t saved_j[4];
 #endif    
@@ -685,17 +691,8 @@ int search_from_candidates(
 
 #ifdef ENABLE_AMX
             if (counter == stride) {
-                // const char* mangled = typeid(qdis).name();
-                // int status = 0;
-                // // demangle 成可读的类名
-                // char* demangled = abi::__cxa_demangle(mangled, nullptr, nullptr, &status);
-                // std::cout << "****** Concrete DistanceComputer: "
-                //           << (status == 0 ? demangled : mangled) << "Processing 16 neighbors"
-                //           << std::endl;
-                // free(demangled);                  
-
-                float dis[stride]={0};
-                qdis.distances_batch(saved_j, dis, stride);
+                alignas(64) float dis[stride]={0};
+                qdis.distances_batch(saved_j, dis, stride, &visited_bf_vec);
 
                 for (size_t id16 = 0; id16 < stride; id16++) {
                     add_to_heap(saved_j[id16], dis[id16]);
@@ -1037,7 +1034,7 @@ void HNSW::search_level_0(
     if (search_type == 1) {
         int nres = 0;
 
-        for (int j = 0; j < nprobe; j++) {
+        for (int j = 0; j < nprobe; j++) {            
             storage_idx_t cj = nearest_i[j];
 
             if (cj < 0)

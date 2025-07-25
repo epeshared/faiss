@@ -18,6 +18,8 @@
 #include <faiss/utils/sorting.h>
 #include <cstring>
 #include <immintrin.h>
+#include <map>
+#include <unordered_map>
 #if defined(ENABLE_AMX)
 #include <faiss/utils/onednn_utils.h>
 #include <faiss/utils/amx_utils.h>
@@ -246,15 +248,16 @@ struct FlatIPDis : FlatCodesDistanceComputer {
     //     const size_t*  idx,
     //     size_t         batch_size,
     //     size_t         code_size,
-    //     size_t         dim)
+    //     size_t         dim, 
+    //     std::map<size_t, std::vector<uint16_t>>* visited_bf_vec)
     // {
     //     for (size_t i = 0; i < batch_size; ++i) {
+            
     //         const float* src = nullptr;
     //         if (idx) {
     //             src = reinterpret_cast<const float*>(
     //                 reinterpret_cast<const char*>(src_base) + idx[i] * code_size);
     //         } else {
-    //             // 如果没有 idx，则直接从 src_base 开始
     //             src = reinterpret_cast<const float*>(src_base);
     //         }
 
@@ -276,77 +279,199 @@ struct FlatIPDis : FlatCodesDistanceComputer {
     //             uint32_t bits = reinterpret_cast<const uint32_t*>(src)[j];
     //             dst_row[j]    = static_cast<uint16_t>(bits >> 16);
     //         }
+
     //     }
     // }
 
+
+    // static inline void convert_f32_to_bf16_avx512bf16(
+    //     const void*    src_base,
+    //     uint16_t**     dst,
+    //     const size_t*  idx,
+    //     size_t         batch_size,
+    //     size_t         code_size,
+    //     size_t         dim,
+    //     std::map<size_t, std::vector<uint16_t>>* visited_bf_vec)
+    // {
+    //     for (size_t i = 0; i < batch_size; ++i) {
+    //         // 1. 计算 key（如果没有 idx，可用 i 作为 key）
+    //         // size_t key = idx[i]?idx[i]:0;
+    //         size_t key = idx ? idx[i] : i;
+    //         // printf("key %ld\n",key);
+    //         // uint16_t* dst_row = dst + i * dim;
+    //         uint16_t* dst_row = *(dst + i);
+
+    //         if (visited_bf_vec) {
+    //             // 2. 如果已转换过，直接拷贝缓存
+    //             auto it = visited_bf_vec->find(key);
+    //             if (it != visited_bf_vec->end()) {
+    //                 // 直接把之前缓存的 vector<uint16_t> 拷贝到 dst_row
+    //                 // std::memcpy(dst_row, it->second.data(), dim * sizeof(uint16_t));
+    //                 dst_row = it->second.data();
+    //                 // printf("hit key %ld\n", key);
+    //                 continue;
+    //             }
+    //         }
+
+
+    //         alignas(64) uint16_t dst_vec[dim] = {0};
+    //         // printf("not hit key %ld\n", key);
+
+    //         // 3. 否则按原逻辑从 float 转到 bf16
+    //         const float* src = nullptr;
+    //         if (idx) {
+    //             src = reinterpret_cast<const float*>(
+    //                 reinterpret_cast<const char*>(src_base) + key * code_size);
+    //         } else {
+    //             src = reinterpret_cast<const float*>(src_base);
+    //         }
+
+    //         size_t j = 0;
+    //         // 每 16 个 float → 16 个 bf16
+    //         for (; j + 16 <= dim; j += 16) {
+    //             __m512  v      = _mm512_loadu_ps(src + j);
+    //             __m256bh bf16v = _mm512_cvtneps_pbh(v);  // 返回 __m256bh
+    //             __m256i packed = (__m256i)bf16v;          // 需要 -flax-vector-conversions
+    //             _mm256_storeu_si256((__m256i*)(dst_vec + j), packed);
+    //         }
+    //         // 处理尾部
+    //         for (; j < dim; ++j) {
+    //             uint32_t bits = reinterpret_cast<const uint32_t*>(src)[j];
+    //             dst_vec[j]    = static_cast<uint16_t>(bits >> 16);
+    //         }
+
+    //         // 4. 把刚转换好的结果缓存进 map
+    //         //    注意这里会拷贝一份 dst_row 到 vector
+    //         if (visited_bf_vec) {
+    //             visited_bf_vec->emplace(
+    //                 key,
+    //                 std::vector<uint16_t>(dst_vec, dst_vec + dim)
+    //             );
+    //             auto it = visited_bf_vec->find(key);
+    //             if (it != visited_bf_vec->end()) {
+    //                 // 直接把之前缓存的 vector<uint16_t> 拷贝到 dst_row
+    //                 // std::memcpy(dst_row, it->second.data(), dim * sizeof(uint16_t));
+    //                 dst_row = it->second.data();
+    //                 // printf("hit key %ld\n", key);
+    //                 continue;
+    //             }                
+    //         }
+    //     }
+    // }
+
+    // If you really need ordering, switch to std::map; but unordered_map will be faster.
+    using BFCache = std::unordered_map<size_t, std::vector<uint16_t>>;
+
+    /**
+     * @param src_base      pointer to float data laid out in rows of byte-size `code_size`
+     * @param dst           array of `batch_size` pointers; on return dst[i] points at the bf16 row
+     * @param idx           optional array of row‑indices; pass nullptr to use i as the key
+     * @param batch_size    number of rows to convert
+     * @param code_size     bytes per row of float data (usually dim * sizeof(float))
+     * @param dim           number of floats per row
+     * @param cache         optional cache of previously converted rows; pass nullptr to disable
+     */
     static inline void convert_f32_to_bf16_avx512bf16(
-        const void*    __restrict src_base,
-        uint16_t*      __restrict dst,
-        const size_t*  __restrict idx,
-        size_t                     batch_size,
-        size_t                     code_size,  // 单位：字节
-        size_t                     dim)
+        const void*      src_base,
+        uint16_t**       dst,
+        const size_t*    idx,
+        size_t           batch_size,
+        size_t           code_size,
+        size_t           dim,
+        BFCache*         cache = nullptr)
     {
-        const char* base = reinterpret_cast<const char*>(src_base);
-        constexpr int PF_DIST = 64;
+        // cache.reserve(batch);
+        const float* float_base = reinterpret_cast<const float*>(src_base);
+        size_t floats_per_row = code_size / sizeof(float);
 
-        for (size_t i = 0; i < batch_size; ++i) {            
-            const float* src_ptr = idx
-                ? reinterpret_cast<const float*>(base + idx[i] * code_size)
-                : reinterpret_cast<const float*>(src_base);
-            uint16_t* dst_ptr = dst + i * dim;
+        // Precompute mask for tail-stores
+        size_t tail = dim % 16;
+        __mmask16 tail_mask = tail ? ( (__mmask16(1) << tail) - 1 ) : 0;
 
+        for (size_t i = 0; i < batch_size; ++i) {
+            size_t key = idx ? idx[i] : i;
+
+            // 1) Look up or insert into cache
+            uint16_t* out_ptr = nullptr;
+            if (cache) {
+                // try_emplace with a vector of size 'dim'
+                auto [it, inserted] = cache->try_emplace(key, std::vector<uint16_t>(dim));
+                out_ptr = it->second.data();
+                if (!inserted) {
+                    // Already cached ⇒ just set dst and skip conversion
+                    dst[i] = out_ptr;
+                    continue;
+                }
+            } else {
+                // no cache ⇒ we expect dst[i] to already point to a valid buffer of at least 'dim' elements
+                out_ptr = dst[i];
+            }
+
+            // 2) Compute pointer to the float row
+            const float* src_row = float_base + key * floats_per_row;
+
+            // 3) Vectorized convert: 16 floats → 16 bf16
             size_t j = 0;
-            for (; j + 16 <= dim; j += 16) {
-                // _mm_prefetch(reinterpret_cast<const char*>(src_ptr + j + PF_DIST/sizeof(float)),
-                //             _MM_HINT_T0);
-                __m512   v  = _mm512_loadu_ps(src_ptr + j);
-                __m256bh bh = _mm512_cvtneps_pbh(v);
-                _mm256_storeu_si256(
-                    reinterpret_cast<__m256i*>(dst_ptr + j),
-                    ( __m256i)bh
+            size_t main = dim - tail;
+            for (; j < main; j += 16) {
+                __m512   v    = _mm512_loadu_ps(src_row + j);
+                __m256bh ph   = _mm512_cvtneps_pbh(v);
+                __m256i pi    = (__m256i)ph;
+                _mm256_storeu_si256(reinterpret_cast<__m256i*>(out_ptr + j), pi);
+            }
+            // 4) Tail with mask
+            if (tail) {
+                __m512   v_tail = _mm512_maskz_loadu_ps(tail_mask, src_row + j);
+                __m256bh ph_tail = _mm512_cvtneps_pbh(v_tail);
+                _mm256_mask_storeu_epi16(
+                    reinterpret_cast<__m256i*>(out_ptr + j),
+                    tail_mask,
+                    (__m256i)ph_tail
                 );
             }
-            for (; j < dim; ++j) {
-                uint32_t bits = reinterpret_cast<const uint32_t*>(src_ptr)[j];
-                dst_ptr[j]    = static_cast<uint16_t>(bits >> 16);
-            }
-        }        
+
+            // 5) Finally, record the output pointer
+            dst[i] = out_ptr;
+        }
     }
+
     #endif    
 
     void distances_batch(
             const size_t* idx,
-            float* dis, size_t stride) final override {
+            float* dis, size_t stride, std::unordered_map<size_t, std::vector<uint16_t>>* visited_bf_vec) final override {
 #if  defined(ENABLE_AMX)  && defined(__AVX512F__)
         ndis += stride;
 
-        uint16_t b_vec[stride][d]={0};
+        uint16_t* b_ptrs[stride];
         convert_f32_to_bf16_avx512bf16(
             codes,
-            &b_vec[0][0],
+            b_ptrs,
             idx,
             stride,
             code_size,
-            d);
+            d, visited_bf_vec);
+        // printf("----1\n");
         
-        uint16_t q_vec[d]={0};
+        uint16_t* q_ptrs[1] = { nullptr };
         convert_f32_to_bf16_avx512bf16(
             q,
-            q_vec,
+            q_ptrs,
             0,
             1,
             code_size,
-            d);
+            d, visited_bf_vec);
+        // printf("----2\n");
+        // printf("q_ptrs: %ld\n", *q_ptrs[0]);
         
-        void* b_ptrs[stride];
-        for (size_t i = 0; i < stride; ++i) {
-            b_ptrs[i] = (uint16_t*)b_vec[i];
-        }
+        // void* b_ptrs[stride];
+        // for (size_t i = 0; i < stride; ++i) {
+        //     b_ptrs[i] = (uint16_t*)b_vec[i];
+        // }
 
         bf16_vec_inner_product_amx_ref(
             reinterpret_cast<void**>(b_ptrs),
-            reinterpret_cast<void*>(q_vec),
+            reinterpret_cast<void*>(q_ptrs[0]),
             &d,
             stride, 1, dis);
 #else
@@ -655,3 +780,4 @@ void IndexFlat1D::search(
 }
 
 } // namespace faiss
+

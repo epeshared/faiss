@@ -11,6 +11,8 @@
 #include <typeinfo>
 #include <cxxabi.h>
 #include <iostream>
+#include <map>
+#include <unordered_map>
 
 namespace faiss {
 
@@ -59,7 +61,7 @@ struct DistanceComputer {
     virtual void distances_batch(
             const size_t* idx,
             float* dis,
-            size_t stride) {
+            size_t stride, std::unordered_map<size_t, std::vector<uint16_t>>* visited_bf_vec) {
         for (size_t i = 0; i < stride; i++) {
             dis[i] = this->operator()(idx[i]);
         }
@@ -109,8 +111,8 @@ struct NegativeDistanceComputer : DistanceComputer {
 
     void distances_batch(
             const size_t* idx,
-            float* dis,  size_t stride) override {                     
-        basedis->distances_batch(idx, dis, stride);
+            float* dis,  size_t stride, std::unordered_map<size_t, std::vector<uint16_t>>* visited_bf_vec) override {                     
+        basedis->distances_batch(idx, dis, stride, visited_bf_vec);
     }      
 
     /// compute distance between two stored vectors
