@@ -628,7 +628,7 @@ int search_from_candidates(
 
     int nstep = 0;
 
-    static std::unordered_map<size_t, std::vector<uint16_t>> visited_bf_vec;
+    static BF16Cache visited_bf_vec;
     
     while (candidates.size() > 0) {
         float d0 = 0;
@@ -662,7 +662,7 @@ int search_from_candidates(
 
         int counter = 0;
 #ifdef ENABLE_AMX
-        size_t stride = 16;
+        const size_t stride = 16;
         alignas(64) size_t saved_j[stride];
 #else
         size_t saved_j[4];
@@ -691,7 +691,7 @@ int search_from_candidates(
 
 #ifdef ENABLE_AMX
             if (counter == stride) {
-                alignas(64) float dis[stride]={0};
+                alignas(64) static thread_local float dis[stride] = {0};
                 qdis.distances_batch(saved_j, dis, stride, &visited_bf_vec);
 
                 for (size_t id16 = 0; id16 < stride; id16++) {
@@ -700,6 +700,7 @@ int search_from_candidates(
                 
                 ndis += stride;
                 counter = 0;                
+                memset(dis, 0, stride * sizeof(float));
             } 
 #else            
             if (counter == 4) {

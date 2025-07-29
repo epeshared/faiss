@@ -13,8 +13,40 @@
 #include <iostream>
 #include <map>
 #include <unordered_map>
+#include <cstdlib>
 
 namespace faiss {
+// 对齐分配器
+template<typename T, std::size_t Alignment>
+struct AlignedAllocator {
+    using value_type = T;
+
+    template<typename U>
+    struct rebind { using other = AlignedAllocator<U, Alignment>; };
+
+    AlignedAllocator() noexcept = default;
+    template<typename U>
+    AlignedAllocator(const AlignedAllocator<U, Alignment>&) noexcept {}
+
+    T* allocate(std::size_t n) {
+        // C++17 对齐分配
+        void* ptr = ::operator new(n * sizeof(T), std::align_val_t(Alignment));
+        return static_cast<T*>(ptr);
+    }
+
+    void deallocate(T* p, std::size_t) noexcept {
+        ::operator delete(p, std::align_val_t(Alignment));
+    }
+
+    bool operator==(const AlignedAllocator&) const noexcept { return true; }
+    bool operator!=(const AlignedAllocator&) const noexcept { return false; }
+};
+
+// typedef std::vector<uint16_t, AlignedAllocator<uint16_t, 64>> AlignedBF16Vec;
+// typedef std::unordered_map<size_t, AlignedBF16Vec> BF16Cache;
+
+typedef std::vector<uint16_t> AlignedBF16Vec;
+typedef std::unordered_map<size_t, AlignedBF16Vec> BF16Cache;
 
 /***********************************************************
  * The distance computer maintains a current query and computes
@@ -61,7 +93,8 @@ struct DistanceComputer {
     virtual void distances_batch(
             const size_t* idx,
             float* dis,
-            size_t stride, std::unordered_map<size_t, std::vector<uint16_t>>* visited_bf_vec) {
+            size_t stride, 
+            BF16Cache* visited_bf_vec) {
         for (size_t i = 0; i < stride; i++) {
             dis[i] = this->operator()(idx[i]);
         }
@@ -111,7 +144,7 @@ struct NegativeDistanceComputer : DistanceComputer {
 
     void distances_batch(
             const size_t* idx,
-            float* dis,  size_t stride, std::unordered_map<size_t, std::vector<uint16_t>>* visited_bf_vec) override {                     
+            float* dis,  size_t stride, BF16Cache* visited_bf_vec) override {
         basedis->distances_batch(idx, dis, stride, visited_bf_vec);
     }      
 
