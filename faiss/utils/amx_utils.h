@@ -51,7 +51,6 @@ __attribute__((constructor)) static void library_load() {
     // _tile_loadconfig((void *)&cfg);
 }
 
-// Tile configuration for AMX: 64 bytes, aligned
 struct alignas(64) TileConfig {
     uint8_t  paletteId = 1;
     uint8_t  startRow  = 0;
@@ -66,22 +65,23 @@ struct alignas(64) TileConfig {
         // define tiles: M0/M1/M2 for library, Q1/Q4/Q6 for query
         colsb[0] = tileBytesA; rows[0] = 16;
         colsb[1] = tileBytesB; rows[1] = DIM / 2;
-        colsb[2] = tileBytesB; rows[2] = DIM / 2;
-        colsb[3] = tileBytesA; rows[3] = 16;
-        colsb[4] = tileBytesB; rows[4] = DIM / 2;
-        colsb[5] = tileBytesA; rows[5] = 16;
+        colsb[2] = tileBytesA; rows[3] = 16;
+        colsb[3] = tileBytesB; rows[2] = DIM / 2;
+        colsb[4] = tileBytesA; rows[5] = 16;
+        colsb[5] = tileBytesB; rows[4] = DIM / 2;
+                                        
         colsb[6] = tileBytesB; rows[6] = DIM / 2;
+        colsb[7] = tileBytesB; rows[7] = DIM / 2;
         // remaining tiles unused
     }
 };
+
 static_assert(sizeof(TileConfig) == 64, "TileConfig must be 64 bytes");
 
-
-// Core AMX inner product for BF16 matrices
 static inline void amx_ip_bf16_matrix(
-        char* const* lib, const char* query,
+        char** lib, const char* query,
         size_t dims, size_t batchA, size_t batchB,
-        float* out) {
+        float* out, bool need_reload_query) {
     constexpr int DIM = 32;
     constexpr int BLOCK = 96;
     size_t full_blocks = dims / BLOCK;
@@ -97,11 +97,15 @@ static inline void amx_ip_bf16_matrix(
     }
 
     // printf("[amx] AMX inner product start: dims=%zu, batchA=%zu, batchB=%zu, full_blocks=%zu, tail=%zu\n", dims, batchA, batchB, full_blocks, tail);
-    _tile_zero(2);
+    _tile_zero(6);
+    _tile_zero(7);
     // printf("[amx] Zeroed tile 2\n");
     alignas(64) static uint8_t bufA[3][1024];
     // printf("[amx] Buffer A allocated: %zu bytes\n", sizeof(bufA));
 
+    static thread_local char* last_lib_ptr = nullptr;
+
+    
     // Process full 96-dim blocks
     for (size_t b = 0; b < full_blocks; ++b) {
         // printf("[amx] Processing block %zu/%zu\n", b, full_blocks);
@@ -116,15 +120,19 @@ static inline void amx_ip_bf16_matrix(
                 );
             }
         }
-        _tile_loadd(1, query + off, 4);
-        _tile_loadd(4, query + off + 64, 4);
-        _tile_loadd(6, query + off + 128, 4);
         _tile_loadd(0, bufA[0], 64);
-        _tile_loadd(3, bufA[1], 64);
-        _tile_loadd(5, bufA[2], 64);
-        _tile_dpbf16ps(2, 3, 4);
-        _tile_dpbf16ps(2, 0, 1);
-        _tile_dpbf16ps(2, 5, 6);
+        _tile_loadd(2, bufA[1], 64);
+        _tile_loadd(4, bufA[2], 64);     
+
+        if (need_reload_query) {
+          _tile_loadd(1, query + off, 4);
+          _tile_loadd(3, query + off + 64, 4);
+          _tile_loadd(5, query + off + 128, 4);
+        }
+
+        _tile_dpbf16ps(6, 0, 1);
+        _tile_dpbf16ps(6, 2, 3);        
+        _tile_dpbf16ps(6, 4, 5);
         // printf("[amx] Block %zu done\n", b);
     }
 
@@ -141,14 +149,14 @@ static inline void amx_ip_bf16_matrix(
             );
         }
         _tile_loadd(0, bufA[0], 64);
-        _tile_loadd(1, query + idx * sizeof(uint16_t), 4);
-        _tile_dpbf16ps(2, 0, 1);
+        _tile_loadd(3, query + idx * sizeof(uint16_t), 4);
+        _tile_dpbf16ps(6, 0, 3);
         idx += DIM;
         // printf("[amx] Tail segment done, new idx=%zu\n", idx);
     }
 
     // printf("[amx] Storing results to output\n");
-    _tile_stored(2, out, batchB * sizeof(float));
+    _tile_stored(6, out, batchB * sizeof(float));
     // printf("[amx] AMX inner product complete\n");
 }
 
@@ -173,30 +181,90 @@ static inline float ip_bf16_avx512(const uint16_t* x,
 }
 
 // Batch extension combining AMX and AVX-512 fallback
+// static inline void ip_bf16_batch(
+//         void** lib_ptrs, const void* query_ptr,
+//         size_t dim, size_t n, size_t m,
+//         float* results) {
+//     char** lib = reinterpret_cast<char**>(lib_ptrs);
+//     const char* query = reinterpret_cast<const char*>(query_ptr);
+//     constexpr size_t BA = 16, BB = 16;
+//     size_t na = (n + BA - 1) / BA;
+//     size_t nb = (m + BB - 1) / BB;
+//     size_t lastA = n % BA ? n % BA : BA;
+//     size_t lastB = m % BB ? m % BB : BB;
+//     float* out = results;
+//     for (size_t ia = 0; ia < na; ++ia) {
+//         size_t ca = (ia == na-1 ? lastA : BA);
+//         auto lib_block = lib + ia * BA;
+//         for (size_t ib = 0; ib < nb; ++ib) {
+//             size_t cb = (ib == nb-1 ? lastB : BB);
+//             auto qry_block = query + ib * BB * dim * 2;
+//             amx_ip_bf16_matrix(lib_block, qry_block,
+//                                dim, ca, cb, out);
+//             out += ca * cb;
+//         }
+//     }
+// }
+
 static inline void ip_bf16_batch(
-        void** lib_ptrs, const void* query_ptr,
-        size_t dim, size_t n, size_t m,
-        float* results) {
-    char** lib = reinterpret_cast<char**>(lib_ptrs);
-    const char* query = reinterpret_cast<const char*>(query_ptr);
-    constexpr size_t BA = 16, BB = 16;
-    size_t na = (n + BA - 1) / BA;
-    size_t nb = (m + BB - 1) / BB;
-    size_t lastA = n % BA ? n % BA : BA;
-    size_t lastB = m % BB ? m % BB : BB;
-    float* out = results;
-    for (size_t ia = 0; ia < na; ++ia) {
-        size_t ca = (ia == na-1 ? lastA : BA);
-        auto lib_block = lib + ia * BA;
-        for (size_t ib = 0; ib < nb; ++ib) {
-            size_t cb = (ib == nb-1 ? lastB : BB);
-            auto qry_block = query + ib * BB * dim * 2;
-            amx_ip_bf16_matrix(lib_block, qry_block,
-                               dim, ca, cb, out);
-            out += ca * cb;
+    void** library_vector_ptrs,
+    const void*  query_data_ptr,
+    size_t       vector_dim,
+    size_t       num_vectors,
+    size_t       num_queries,
+    float*       output_scores)
+{
+    // reinterpret pointers
+    char**       vector_ptrs  = reinterpret_cast<char**>(library_vector_ptrs);
+    const char*  query_bytes  = reinterpret_cast<const char*>(query_data_ptr);
+
+    // block sizes
+    constexpr size_t VECTOR_BLOCK = 16;
+    constexpr size_t QUERY_BLOCK  = 16;
+
+    // number of full blocks and remainder sizes
+    size_t num_vector_blocks       = (num_vectors + VECTOR_BLOCK - 1) / VECTOR_BLOCK;
+    size_t num_query_blocks        = (num_queries + QUERY_BLOCK - 1) / QUERY_BLOCK;
+    size_t last_vector_block_size  = num_vectors % VECTOR_BLOCK ? (num_vectors % VECTOR_BLOCK) : VECTOR_BLOCK;
+    size_t last_query_block_size   = num_queries % QUERY_BLOCK  ? (num_queries  % QUERY_BLOCK)  : QUERY_BLOCK;
+
+    float* out_ptr = output_scores;
+
+    // outer loop over query blocks
+    for (size_t q_block_idx = 0; q_block_idx < num_query_blocks; ++q_block_idx) {
+        size_t query_block_size = (q_block_idx == num_query_blocks - 1)
+                                  ? last_query_block_size
+                                  : QUERY_BLOCK;
+        const char* query_block_ptr = query_bytes
+                                    + q_block_idx * QUERY_BLOCK * vector_dim * sizeof(uint16_t);
+
+        // inner loop over vector blocks
+        for (size_t v_block_idx = 0; v_block_idx < num_vector_blocks; ++v_block_idx) {
+            size_t vector_block_size = (v_block_idx == num_vector_blocks - 1)
+                                       ? last_vector_block_size
+                                       : VECTOR_BLOCK;
+            char** vector_block_ptr = vector_ptrs + v_block_idx * VECTOR_BLOCK;
+
+            // reload_query only on the first vector block of each query block
+            bool reload_query = (v_block_idx == 0);
+
+            amx_ip_bf16_matrix(
+                vector_block_ptr,
+                query_block_ptr,
+                vector_dim,
+                vector_block_size,
+                query_block_size,
+                out_ptr,
+                reload_query
+            );
+
+            // advance output pointer by the number of scores written
+            out_ptr += vector_block_size * query_block_size;
         }
     }
 }
+
+
 
 // Reference entry point
 static float bf16_vec_inner_product_amx_ref(
