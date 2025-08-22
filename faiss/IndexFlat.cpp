@@ -21,9 +21,13 @@
 #include <immintrin.h>
 #include <map>
 #include <unordered_map>
+#include <cstdint>
+#include <cassert>
 #if defined(ENABLE_AMX)
-#include <faiss/utils/onednn_utils.h>
-#include <faiss/utils/amx_utils.h>
+// #include <faiss/utils/onednn_utils.h>
+// #include <faiss/utils/amx_utils.h>
+#include <faiss/utils/amx_bf16.h>
+#include <faiss/utils/amx_bf16_block.h>
 #endif
 
 namespace faiss {
@@ -232,7 +236,8 @@ struct FlatIPDis : FlatCodesDistanceComputer {
         dis3 = dp3;
     }
 
-    #if defined(__AVX512BF16__)
+#if defined(__AVX512BF16__)
+
     /**
      * @param src_base      pointer to float data laid out in rows of byte-size `code_size`
      * @param dst           array of `batch_size` pointers; on return dst[i] points at the bf16 row
@@ -243,109 +248,96 @@ struct FlatIPDis : FlatCodesDistanceComputer {
      * @param cache         optional cache of previously converted rows; pass nullptr to disable
      */
     static inline void convert_f32_to_bf16_avx512bf16(
-        const void*      src_base,
-        uint16_t**       dst,
-        const size_t*    idx,
-        size_t           batch_size,
-        size_t           code_size,
-        size_t           dim,
-        BF16Cache*   cache = nullptr)
-    {
-        // cache.reserve(batch);
-        const float* float_base = reinterpret_cast<const float*>(src_base);
-        size_t floats_per_row = code_size / sizeof(float);
+        const void*    src_base,     // 连续的按行存放的 float32 数据
+        uint16_t**     dst,          // 输出指针数组：dst[i] 指向第 i 个样本的 bf16 行缓冲
+        const size_t*  idx,          // 行索引（可为空；为空则用 i）
+        size_t         batch_size,   // 处理的行数
+        size_t         code_size,    // 每行步幅（字节）
+        size_t         dim          // 每行有效元素个数
+        )  // 可选缓存；为 nullptr 时不查不写
+    {        
+        assert(src_base != nullptr);
+        assert(dst != nullptr);
+        assert(code_size % sizeof(float) == 0);
 
-        // Precompute mask for tail-stores
-        size_t tail = dim % 16;
-        __mmask16 tail_mask = tail ? ( (__mmask16(1) << tail) - 1 ) : 0;
+        const float* float_base = reinterpret_cast<const float*>(src_base);
+        const size_t floats_per_row = code_size / sizeof(float);
+
+        // 若存在 padding，确保源行至少有 dim 个有效元素
+        assert(floats_per_row >= dim || dim == 0);
+
+        const size_t tail = dim & 15u; // dim % 16
+        const __mmask16 tail_mask = tail ? ((__mmask16(1) << tail) - 1) : (__mmask16)0;
+        const size_t main = dim - tail;
 
         for (size_t i = 0; i < batch_size; ++i) {
-            size_t key = idx ? idx[i] : i;
-
-            // 1) Look up or insert into cache
-            uint16_t* out_ptr = nullptr;
-            if (cache) {
-                // try_emplace with a vector of size 'dim'
-                auto [it, inserted] = cache->try_emplace(key, AlignedBF16Vec(dim));
-                out_ptr = it->second.data();
-                if (!inserted) {
-                    // Already cached ⇒ just set dst and skip conversion
-                    dst[i] = out_ptr;
-                    continue;
-                }
-            } else {
-                // no cache ⇒ we expect dst[i] to already point to a valid buffer of at least 'dim' elements
-                out_ptr = dst[i];
-            }
-
-            // 2) Compute pointer to the float row
+            const size_t key = idx ? idx[i] : i;
             const float* src_row = float_base + key * floats_per_row;
 
-            // 3) Vectorized convert: 16 floats → 16 bf16
-            size_t j = 0;
-            size_t main = dim - tail;
-            for (; j < main; j += 16) {
-                __m512   v    = _mm512_loadu_ps(src_row + j);
-                __m256bh ph   = _mm512_cvtneps_pbh(v);
-                __m256i pi    = (__m256i)ph;
-                _mm256_storeu_si256(reinterpret_cast<__m256i*>(out_ptr + j), pi);
-            }
-            // 4) Tail with mask
-            if (tail) {
-                __m512   v_tail = _mm512_maskz_loadu_ps(tail_mask, src_row + j);
-                __m256bh ph_tail = _mm512_cvtneps_pbh(v_tail);
-                _mm256_mask_storeu_epi16(
-                    reinterpret_cast<__m256i*>(out_ptr + j),
-                    tail_mask,
-                    (__m256i)ph_tail
-                );
-            }
+            uint16_t* out_ptr = dst[i];
+            assert(out_ptr != nullptr); // 需要调用方保证有 dim 个 u16 可写空间
 
-            // 5) Finally, record the output pointer
+            // 向量化主循环：每次 16 个
+            size_t j = 0;
+            for (; j < main; j += 16) {
+                __m512    v  = _mm512_loadu_ps(src_row + j);
+                __m256bh  ph = _mm512_cvtneps_pbh(v); // f32 -> bf16 (RNNE)
+                _mm256_storeu_si256(reinterpret_cast<__m256i*>(out_ptr + j), (__m256i)ph);
+            }
+            
+            // 尾部（<16）
+            if (tail) {
+                __m512    v_tail  = _mm512_maskz_loadu_ps(tail_mask, src_row + j);
+                __m256bh  ph_tail = _mm512_cvtneps_pbh(v_tail);
+                _mm256_mask_storeu_epi16(reinterpret_cast<__m256i*>(out_ptr + j),
+                                        tail_mask, (__m256i)ph_tail);
+            }
+            // 记录输出指针
             dst[i] = out_ptr;
         }
     }
 
-    #endif    
+#endif    
 
     void distances_batch(
             const size_t* idx,
-            float* dis, size_t stride, 
-            BF16Cache* visited_bf_vec) final override {
+            float* dis, size_t stride) final override {
 #if  defined(ENABLE_AMX)  && defined(__AVX512F__)
         ndis += stride;
-
+        
         uint16_t* b_ptrs[stride];
+        auto *raw = (uint16_t*) aligned_alloc(64, stride * d * sizeof(uint16_t));
+        std::unique_ptr<uint16_t, void(*)(void*)> b_pool(raw, free);
+
+        for (size_t i = 0; i < stride; ++i) b_ptrs[i] = raw + i * d;
+
         convert_f32_to_bf16_avx512bf16(
             codes,
             b_ptrs,
             idx,
             stride,
             code_size,
-            d, visited_bf_vec);
-        // printf("----1\n");
+            d);
+        
+        PackedA A; 
+        prepack_A_bf16_tiles((void **)b_ptrs, stride, d, A);
+
         
         uint16_t* q_ptrs[1] = { nullptr };
+        auto *q_raw = (uint16_t*) aligned_alloc(64, 1 * d * sizeof(uint16_t));
+        std::unique_ptr<uint16_t, void(*)(void*)> q_pool(q_raw, free);
+        q_ptrs[0] = q_raw;
         convert_f32_to_bf16_avx512bf16(
             q,
             q_ptrs,
             0,
             1,
             code_size,
-            d, visited_bf_vec);
-        // printf("----2\n");
-        // printf("q_ptrs: %ld\n", *q_ptrs[0]);
+            d);
         
-        // void* b_ptrs[stride];
-        // for (size_t i = 0; i < stride; ++i) {
-        //     b_ptrs[i] = (uint16_t*)b_vec[i];
-        // }
+        amx_row_scores_packed(b_ptrs, q_ptrs[1], d, stride, 1, A, dis);
+        free_packedA(A);
 
-        bf16_vec_inner_product_amx_ref(
-            reinterpret_cast<void**>(b_ptrs),
-            reinterpret_cast<void*>(q_ptrs[0]),
-            &d,
-            stride, 1, dis);
 #else
         for (size_t i = 0; i < 16; i++) {
             dis[i] = fvec_inner_product(

@@ -196,8 +196,8 @@ set(FAISS_HEADERS
   invlists/InvertedLists.h
   invlists/InvertedListsIOHook.h
   invlists/OnDiskInvertedLists.h
+  utils/amx_bf16.h
   utils/amx_utils.h
-  utils/onednn_utils.h
   utils/AlignedTable.h
   utils/bf16.h
   utils/Heap.h

@@ -14,6 +14,7 @@
 #include <map>
 #include <unordered_map>
 #include <cstdlib>
+#include <vector>
 
 namespace faiss {
 // 对齐分配器
@@ -42,11 +43,21 @@ struct AlignedAllocator {
     bool operator!=(const AlignedAllocator&) const noexcept { return false; }
 };
 
-// typedef std::vector<uint16_t, AlignedAllocator<uint16_t, 64>> AlignedBF16Vec;
-// typedef std::unordered_map<size_t, AlignedBF16Vec> BF16Cache;
-
-typedef std::vector<uint16_t> AlignedBF16Vec;
+typedef std::vector<uint16_t, AlignedAllocator<uint16_t, 64>> AlignedBF16Vec;
 typedef std::unordered_map<size_t, AlignedBF16Vec> BF16Cache;
+
+// struct VectorBlockStorage {    
+//     // 分块存储格式: [块索引][位置]
+//     // 每个块包含所有向量的32个连续维度
+//     std::vector<std::vector<uint16_t>> blocked;
+    
+//     // 用于接口的指针数组：每个元素指向一个块的数据
+//     std::vector<void*> block_pointers;
+// };
+// typedef std::unordered_map<size_t, VectorBlockStorage> BF16Cache;
+
+// typedef std::vector<uint16_t> AlignedBF16Vec;
+// typedef std::unordered_map<size_t, AlignedBF16Vec> BF16Cache;
 
 /***********************************************************
  * The distance computer maintains a current query and computes
@@ -93,8 +104,7 @@ struct DistanceComputer {
     virtual void distances_batch(
             const size_t* idx,
             float* dis,
-            size_t stride, 
-            BF16Cache* visited_bf_vec) {
+            size_t stride) {
         for (size_t i = 0; i < stride; i++) {
             dis[i] = this->operator()(idx[i]);
         }
@@ -144,8 +154,8 @@ struct NegativeDistanceComputer : DistanceComputer {
 
     void distances_batch(
             const size_t* idx,
-            float* dis,  size_t stride, BF16Cache* visited_bf_vec) override {
-        basedis->distances_batch(idx, dis, stride, visited_bf_vec);
+            float* dis,  size_t stride) override {
+        basedis->distances_batch(idx, dis, stride);
     }      
 
     /// compute distance between two stored vectors

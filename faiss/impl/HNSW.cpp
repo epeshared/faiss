@@ -57,6 +57,11 @@ void HNSW::neighbor_range(idx_t no, int layer_no, size_t* begin, size_t* end)
     *end = o + cum_nb_neighbors(layer_no + 1);
 }
 
+void HNSW::neighbor_range(int layer_no, size_t* begin, size_t* end) const {
+    *begin = cum_nb_neighbors(layer_no);
+    *end = cum_nb_neighbors(layer_no + 1);
+}
+
 HNSW::HNSW(int M) : rng(12345) {
     set_default_probas(M, 1.0 / log(M));
     offsets.push_back(0);
@@ -628,9 +633,11 @@ int search_from_candidates(
 
     int nstep = 0;
 
-    static BF16Cache visited_bf_vec;
-    
     while (candidates.size() > 0) {
+        // printf("candidates size %zd, nres %d, nstep %d\n",
+        //        candidates.size(),
+        //        nres,
+        //        nstep);
         float d0 = 0;
         int v0 = candidates.pop_min(&d0);
 
@@ -645,7 +652,7 @@ int search_from_candidates(
             }
         }
 
-        size_t begin, end;
+        size_t begin, end;        
         hnsw.neighbor_range(v0, level, &begin, &end);
 
         // a faster version: reference version in unit test test_hnsw.cpp
@@ -663,13 +670,12 @@ int search_from_candidates(
         int counter = 0;
 #ifdef ENABLE_AMX
         const size_t stride = 16;
-        alignas(64) size_t saved_j[stride];
 #else
-        size_t saved_j[4];
-#endif    
-
-        threshold = res.threshold;
-
+        const size_t stride = 4;
+#endif
+        
+        alignas(64) size_t saved_j[stride];
+        threshold = res.threshold;    
         auto add_to_heap = [&](const size_t idx, const float dis) {
             if (!sel || sel->is_member(idx)) {
                 if (dis < threshold) {
@@ -692,7 +698,7 @@ int search_from_candidates(
 #ifdef ENABLE_AMX
             if (counter == stride) {
                 alignas(64) static thread_local float dis[stride] = {0};
-                qdis.distances_batch(saved_j, dis, stride, &visited_bf_vec);
+                qdis.distances_batch(saved_j, dis, stride);
 
                 for (size_t id16 = 0; id16 < stride; id16++) {
                     add_to_heap(saved_j[id16], dis[id16]);
