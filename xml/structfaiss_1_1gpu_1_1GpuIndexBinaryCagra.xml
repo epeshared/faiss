@@ -11,7 +11,7 @@
         <name>resources_</name>
         <qualifiedname>faiss::gpu::GpuIndexBinaryCagra::resources_</qualifiedname>
         <briefdescription>
-<para>Manages streans, cuBLAS handles and scratch memory for devices. </para>
+<para>Manages streams, cuBLAS handles and scratch memory for devices. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -689,7 +689,7 @@
 <parametername>recons</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reconstucted vector (size d / 8) </para>
+<para>reconstructed vector (size d / 8) </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -727,7 +727,7 @@
 <parametername>recons</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reconstucted vectors (size ni * d / 8) </para>
+<para>reconstructed vectors (size ni * d / 8) </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>

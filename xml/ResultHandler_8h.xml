@@ -21,6 +21,8 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>faiss/impl/AuxIndexStructures.h</label>
@@ -37,25 +39,25 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="13">
         <label>faiss/impl/FaissException.h</label>
         <link refid="FaissException_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>faiss/impl/IDSelector.h</label>
         <link refid="IDSelector_8h_source"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -67,20 +69,20 @@
         <link refid="ResultHandler_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="27" relation="include">
         </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>faiss/impl/platform_macros.h</label>
         <link refid="platform__macros_8h_source"/>
         <childnode refid="9" relation="include">
@@ -88,58 +90,58 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>faiss/utils/Heap.h</label>
         <link refid="Heap_8h_source"/>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>faiss/utils/ordered_key_value.h</label>
+        <link refid="ordered__key__value_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="23">
-        <label>faiss/utils/ordered_key_value.h</label>
-        <link refid="ordered__key__value_8h_source"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
+      <node id="25">
         <label>faiss/utils/partitioning.h</label>
         <link refid="partitioning_8h_source"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>algorithm</label>
       </node>
-      <node id="21">
+      <node id="22">
         <label>cassert</label>
       </node>
-      <node id="19">
+      <node id="20">
         <label>climits</label>
       </node>
-      <node id="20">
+      <node id="21">
         <label>cmath</label>
       </node>
       <node id="9">
@@ -148,16 +150,19 @@
       <node id="10">
         <label>cstdio</label>
       </node>
+      <node id="11">
+        <label>cstdlib</label>
+      </node>
       <node id="4">
         <label>cstring</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>exception</label>
       </node>
-      <node id="27">
+      <node id="28">
         <label>iostream</label>
       </node>
-      <node id="22">
+      <node id="23">
         <label>limits</label>
       </node>
       <node id="5">
@@ -169,16 +174,16 @@
       <node id="3">
         <label>stdint.h</label>
       </node>
-      <node id="25">
+      <node id="26">
         <label>stdio.h</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>string</label>
       </node>
-      <node id="17">
+      <node id="18">
         <label>unordered_set</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>utility</label>
       </node>
       <node id="7">
@@ -186,31 +191,45 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>faiss/IndexIVFRaBitQFastScan.h</label>
+        <link refid="IndexIVFRaBitQFastScan_8h_source"/>
+      </node>
+      <node id="4">
+        <label>faiss/IndexRaBitQFastScan.h</label>
+        <link refid="IndexRaBitQFastScan_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>faiss/impl/ResultHandler.h</label>
         <link refid="ResultHandler_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>faiss/impl/simd_result_handlers.h</label>
         <link refid="simd__result__handlers_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="5">
         <label>faiss/utils/distances_fused/avx512.h</label>
         <link refid="avx512_8h_source"/>
       </node>
-      <node id="4">
+      <node id="6">
         <label>faiss/utils/distances_fused/distances_fused.h</label>
         <link refid="distances__fused_8h_source"/>
       </node>
-      <node id="5">
+      <node id="7">
         <label>faiss/utils/distances_fused/simdlib_based.h</label>
         <link refid="simdlib__based_8h_source"/>
       </node>
@@ -299,11 +318,11 @@
 <codeline lineno="26"><highlight class="comment"><sp/>*<sp/>The<sp/>classes<sp/>below<sp/>are<sp/>intended<sp/>to<sp/>be<sp/>used<sp/>as<sp/>template<sp/>arguments</highlight></codeline>
 <codeline lineno="27"><highlight class="comment"><sp/>*<sp/>they<sp/>handle<sp/>results<sp/>for<sp/>batches<sp/>of<sp/>queries<sp/>(size<sp/>nq).</highlight></codeline>
 <codeline lineno="28"><highlight class="comment"><sp/>*<sp/>They<sp/>can<sp/>be<sp/>called<sp/>in<sp/>two<sp/>ways:</highlight></codeline>
-<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>-<sp/>by<sp/>instanciating<sp/>a<sp/>SingleResultHandler<sp/>that<sp/>tracks<sp/>results<sp/>for<sp/>a<sp/>single</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>-<sp/>by<sp/>instantiating<sp/>a<sp/>SingleResultHandler<sp/>that<sp/>tracks<sp/>results<sp/>for<sp/>a<sp/>single</highlight></codeline>
 <codeline lineno="30"><highlight class="comment"><sp/>*<sp/><sp/><sp/>query</highlight></codeline>
 <codeline lineno="31"><highlight class="comment"><sp/>*<sp/>-<sp/>with<sp/>begin_multiple/add_results/end_multiple<sp/>calls<sp/>where<sp/>a<sp/>whole<sp/>block<sp/>of</highlight></codeline>
 <codeline lineno="32"><highlight class="comment"><sp/>*<sp/><sp/><sp/>results<sp/>is<sp/>submitted</highlight></codeline>
-<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>All<sp/>classes<sp/>are<sp/>templated<sp/>on<sp/>C<sp/>which<sp/>to<sp/>define<sp/>wheter<sp/>the<sp/>min<sp/>or<sp/>the<sp/>max<sp/>of</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>All<sp/>classes<sp/>are<sp/>templated<sp/>on<sp/>C<sp/>which<sp/>to<sp/>define<sp/>whether<sp/>the<sp/>min<sp/>or<sp/>the<sp/>max<sp/>of</highlight></codeline>
 <codeline lineno="34"><highlight class="comment"><sp/>*<sp/>results<sp/>is<sp/>to<sp/>be<sp/>kept,<sp/>and<sp/>on<sp/>sel,<sp/>so<sp/>that<sp/>the<sp/>codepaths<sp/>for<sp/>with<sp/>/<sp/>without</highlight></codeline>
 <codeline lineno="35"><highlight class="comment"><sp/>*<sp/>selector<sp/>can<sp/>be<sp/>separated<sp/>at<sp/>compile<sp/>time.</highlight></codeline>
 <codeline lineno="36"><highlight class="comment"><sp/>*****************************************************************/</highlight><highlight class="normal"></highlight></codeline>
@@ -579,7 +598,7 @@
 <codeline lineno="306"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="307"><highlight class="comment"><sp/>*<sp/>A<sp/>reservoir<sp/>is<sp/>a<sp/>result<sp/>array<sp/>of<sp/>size<sp/>capacity<sp/>&gt;<sp/>n<sp/>(number<sp/>of<sp/>requested</highlight></codeline>
 <codeline lineno="308"><highlight class="comment"><sp/>*<sp/>results)<sp/>all<sp/>results<sp/>below<sp/>a<sp/>threshold<sp/>are<sp/>stored<sp/>in<sp/>an<sp/>arbitrary<sp/>order.</highlight></codeline>
-<codeline lineno="309"><highlight class="comment"><sp/>*When<sp/>the<sp/>capacity<sp/>is<sp/>reached,<sp/>a<sp/>new<sp/>threshold<sp/>is<sp/>chosen<sp/>by<sp/>partitionning</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*When<sp/>the<sp/>capacity<sp/>is<sp/>reached,<sp/>a<sp/>new<sp/>threshold<sp/>is<sp/>chosen<sp/>by<sp/>partitioning</highlight></codeline>
 <codeline lineno="310"><highlight class="comment"><sp/>*the<sp/>distance<sp/>array.</highlight></codeline>
 <codeline lineno="311"><highlight class="comment"><sp/>*****************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="312"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
@@ -845,7 +864,7 @@
 <codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structfaiss_1_1RangeSearchPartialResult" kindref="compound">RangeSearchPartialResult</ref>*<sp/>pres;</highlight></codeline>
 <codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>there<sp/>is<sp/>one<sp/>RangeSearchPartialResult<sp/>structure<sp/>per<sp/>j0</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(=<sp/>block<sp/>of<sp/>columns<sp/>of<sp/>the<sp/>large<sp/>distance<sp/>matrix)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>is<sp/>a<sp/>bit<sp/>tricky<sp/>to<sp/>find<sp/>the<sp/>poper<sp/>PartialResult<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>is<sp/>a<sp/>bit<sp/>tricky<sp/>to<sp/>find<sp/>the<sp/>proper<sp/>PartialResult<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="576"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>the<sp/>inner<sp/>loop<sp/>is<sp/>on<sp/>db<sp/>not<sp/>on<sp/>queries.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="577"><highlight class="normal"></highlight></codeline>
 <codeline lineno="578"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pr<sp/>&lt;<sp/>j0s.size()<sp/>&amp;&amp;<sp/>j0<sp/>==<sp/>j0s[pr])<sp/>{</highlight></codeline>
