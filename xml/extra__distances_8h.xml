@@ -27,6 +27,8 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>faiss/impl/FaissAssert.h</label>
@@ -35,11 +37,15 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -54,10 +60,10 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="17">
         <label>faiss/impl/IDSelector.h</label>
         <link refid="IDSelector_8h_source"/>
-        <childnode refid="16" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
@@ -72,50 +78,62 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="26">
+        <label>faiss/impl/simd_dispatch.h</label>
+        <link refid="simd__dispatch_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
         <label>faiss/utils/Heap.h</label>
         <link refid="Heap_8h_source"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
       </node>
-      <node id="25">
+      <node id="28">
         <label>faiss/utils/distances.h</label>
         <link refid="distances_8h_source"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>faiss/utils/extra_distances-inl.h</label>
         <link refid="extra__distances-inl_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -125,30 +143,43 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
         <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>faiss/utils/ordered_key_value.h</label>
-        <link refid="ordered__key__value_8h_source"/>
-        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="24">
+        <label>faiss/utils/ordered_key_value.h</label>
+        <link refid="ordered__key__value_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>faiss/utils/simd_levels.h</label>
+        <link refid="simd__levels_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
         <label>cassert</label>
       </node>
-      <node id="18">
+      <node id="15">
+        <label>cinttypes</label>
+      </node>
+      <node id="20">
         <label>climits</label>
       </node>
-      <node id="19">
+      <node id="21">
         <label>cmath</label>
       </node>
       <node id="5">
@@ -160,13 +191,13 @@
       <node id="7">
         <label>cstdlib</label>
       </node>
-      <node id="20">
+      <node id="22">
         <label>cstring</label>
       </node>
       <node id="10">
         <label>exception</label>
       </node>
-      <node id="22">
+      <node id="16">
         <label>limits</label>
       </node>
       <node id="2">
@@ -175,10 +206,10 @@
       <node id="11">
         <label>string</label>
       </node>
-      <node id="26">
+      <node id="29">
         <label>type_traits</label>
       </node>
-      <node id="16">
+      <node id="18">
         <label>unordered_set</label>
       </node>
       <node id="12">
@@ -251,10 +282,54 @@
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>metric_arg,</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>nb,</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>xb);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>faiss</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;faiss/utils/extra_distances-inl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">///<sp/>Dispatch<sp/>to<sp/>a<sp/>lambda<sp/>with<sp/>MetricType<sp/>as<sp/>a<sp/>compile-time<sp/>constant.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment">///<sp/>This<sp/>allows<sp/>writing<sp/>generic<sp/>code<sp/>that<sp/>works<sp/>with<sp/>different<sp/>metrics</highlight></codeline>
+<codeline lineno="61"><highlight class="comment">///<sp/>while<sp/>maintaining<sp/>compile-time<sp/>optimization.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment">///</highlight></codeline>
+<codeline lineno="63"><highlight class="comment">///<sp/>Example<sp/>usage:</highlight></codeline>
+<codeline lineno="64"><highlight class="comment">///<sp/><sp/><sp/>auto<sp/>result<sp/>=<sp/>with_metric_type(runtime_metric,<sp/>[&amp;](auto<sp/>metric_tag)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="comment">///<sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/>MetricType<sp/>M<sp/>=<sp/>decltype(metric_tag)::value;</highlight></codeline>
+<codeline lineno="66"><highlight class="comment">///<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>compute_distance&lt;M&gt;(x,<sp/>y);</highlight></codeline>
+<codeline lineno="67"><highlight class="comment">///<sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"></highlight><highlight class="preprocessor">#ifndef<sp/>SWIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>LambdaType&gt;</highlight></codeline>
+<codeline lineno="71" refid="namespacefaiss_1a987ea96650dd763a87affacd88649fc6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1a987ea96650dd763a87affacd88649fc6" kindref="member">with_metric_type</ref>(<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752c" kindref="member">MetricType</ref><sp/>metric,<sp/>LambdaType&amp;&amp;<sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(metric)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca96ba216fbb3b4e586edf26637d61c7b2" kindref="member">METRIC_INNER_PRODUCT</ref>:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca96ba216fbb3b4e586edf26637d61c7b2" kindref="member">METRIC_INNER_PRODUCT</ref>&gt;();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cace9aa175fe11f346aa0a70df58977ff1" kindref="member">METRIC_L2</ref>:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cace9aa175fe11f346aa0a70df58977ff1" kindref="member">METRIC_L2</ref>&gt;();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cad1ccd4c5874f8d03f77227b40e4777df" kindref="member">METRIC_L1</ref>:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cad1ccd4c5874f8d03f77227b40e4777df" kindref="member">METRIC_L1</ref>&gt;();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca6eefdfaded6b0f0c51ed3a91acff01c3" kindref="member">METRIC_Linf</ref>:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca6eefdfaded6b0f0c51ed3a91acff01c3" kindref="member">METRIC_Linf</ref>&gt;();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca948cb1a3b5ec11c028c0be6a5dbd908c" kindref="member">METRIC_Lp</ref>:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca948cb1a3b5ec11c028c0be6a5dbd908c" kindref="member">METRIC_Lp</ref>&gt;();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752caf4e931a0d14ac0d0acd8cc74504df12a" kindref="member">METRIC_Canberra</ref>:</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752caf4e931a0d14ac0d0acd8cc74504df12a" kindref="member">METRIC_Canberra</ref>&gt;();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>METRIC_BrayCurtis:</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;METRIC_BrayCurtis&gt;();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>METRIC_JensenShannon:</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;METRIC_JensenShannon&gt;();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca9d87c6d698adfbe153eba955b64f0034" kindref="member">METRIC_Jaccard</ref>:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca9d87c6d698adfbe153eba955b64f0034" kindref="member">METRIC_Jaccard</ref>&gt;();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cacb32f4fe0d27316f90eda03ffe999f85" kindref="member">METRIC_NaNEuclidean</ref>:</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752cacb32f4fe0d27316f90eda03ffe999f85" kindref="member">METRIC_NaNEuclidean</ref>&gt;();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca6fa7c42681d0022558a10e89b3be24a8" kindref="member">METRIC_GOWER</ref>:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>action.template<sp/>operator()&lt;<ref refid="namespacefaiss_1afd12191c638da74760ff397cf319752ca6fa7c42681d0022558a10e89b3be24a8" kindref="member">METRIC_GOWER</ref>&gt;();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FAISS_THROW_FMT(</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;with_metric_type<sp/>called<sp/>with<sp/>unknown<sp/>metric<sp/>%d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(metric));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SWIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>faiss</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;faiss/utils/extra_distances-inl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="faiss/utils/extra_distances.h"/>
   </compounddef>
