@@ -119,12 +119,21 @@ swig_add_library(swigfaiss
   SOURCES swigfaiss.swig
 )
 
+# Place extension modules into the Python package directory so `import faiss`
+# always loads the just-built shared object.
+set(PYFAISS_PACKAGE_DIR "${CMAKE_CURRENT_BINARY_DIR}/faiss")
+
 if(TARGET swigfaiss AND NOT CMAKE_SYSTEM_NAME MATCHES "Darwin")
   set_target_properties(swigfaiss PROPERTIES
     CXX_VISIBILITY_PRESET hidden
     VISIBILITY_INLINES_HIDDEN ON
   )
 endif()
+
+set_target_properties(swigfaiss PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+)
 
 set_property(TARGET swigfaiss PROPERTY SWIG_COMPILE_OPTIONS -doxygen)
 
@@ -136,6 +145,10 @@ swig_add_library(swigfaiss_avx2
   SOURCES swigfaiss_avx2.swig
 )
 set_property(TARGET swigfaiss_avx2 PROPERTY SWIG_COMPILE_OPTIONS -doxygen)
+set_target_properties(swigfaiss_avx2 PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+)
 if(NOT FAISS_OPT_LEVEL STREQUAL "avx2" AND NOT FAISS_OPT_LEVEL STREQUAL "avx512" AND NOT FAISS_OPT_LEVEL STREQUAL "avx512_spr")
   set_target_properties(swigfaiss_avx2 PROPERTIES EXCLUDE_FROM_ALL TRUE)
 endif()
@@ -148,6 +161,10 @@ swig_add_library(swigfaiss_avx512
   SOURCES swigfaiss_avx512.swig
 )
 set_property(TARGET swigfaiss_avx512 PROPERTY SWIG_COMPILE_OPTIONS -doxygen)
+set_target_properties(swigfaiss_avx512 PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+)
 if(NOT FAISS_OPT_LEVEL STREQUAL "avx512")
   set_target_properties(swigfaiss_avx512 PROPERTIES EXCLUDE_FROM_ALL TRUE)
 endif()
@@ -160,6 +177,10 @@ swig_add_library(swigfaiss_avx512_spr
   SOURCES swigfaiss_avx512_spr.swig
 )
 set_property(TARGET swigfaiss_avx512_spr PROPERTY SWIG_COMPILE_OPTIONS -doxygen)
+set_target_properties(swigfaiss_avx512_spr PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+)
 if(NOT FAISS_OPT_LEVEL STREQUAL "avx512_spr")
   set_target_properties(swigfaiss_avx512_spr PROPERTIES EXCLUDE_FROM_ALL TRUE)
 endif()
@@ -172,6 +193,10 @@ swig_add_library(swigfaiss_sve
   SOURCES swigfaiss_sve.swig
 )
 set_property(TARGET swigfaiss_sve PROPERTY SWIG_COMPILE_OPTIONS -doxygen)
+set_target_properties(swigfaiss_sve PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY "${PYFAISS_PACKAGE_DIR}"
+)
 if(NOT FAISS_OPT_LEVEL STREQUAL "sve")
   set_target_properties(swigfaiss_sve PROPERTIES EXCLUDE_FROM_ALL TRUE)
 endif()

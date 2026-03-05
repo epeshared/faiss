@@ -167,9 +167,7 @@ SQDistanceComputer* select_distance_computer(
             if constexpr (
                     SL == SIMDLevel::AVX512 &&
                     std::is_same_v<Sim, SimilarityIP<SIMDLevel::AVX512>>) {
-                if (d % 32 == 0) {
-                    return new DCBF16IPDpbf16<SL>(d, trained);
-                }
+                return new DCBF16IPDpbf16<SL>(d, trained);
             }
 #endif
             return new DCTemplate<QuantizerBF16<SL>, Sim, SL>(d, trained);
@@ -609,9 +607,7 @@ InvertedListScanner* ScalarQuantizer::select_InvertedListScanner(
                 if constexpr (
                         SL == SIMDLevel::AVX512 &&
                         std::is_same_v<Similarity, SimilarityIP<SIMDLevel::AVX512>>) {
-                    if (d % 32 == 0) {
-                        return scan.template operator()<DCBF16IPDpbf16<SL>>();
-                    }
+                    return scan.template operator()<DCBF16IPDpbf16<SL>>();
                 }
 #endif
                 return scan.template

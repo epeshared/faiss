@@ -33,23 +33,36 @@ else:
     ext = ".a"
 prefix = "Release/" * (platform.system() == "Windows")
 
-swigfaiss_generic_lib = f"{prefix}_swigfaiss{ext}"
-swigfaiss_avx2_lib = f"{prefix}_swigfaiss_avx2{ext}"
-swigfaiss_avx512_lib = f"{prefix}_swigfaiss_avx512{ext}"
-swigfaiss_avx512_spr_lib = f"{prefix}_swigfaiss_avx512_spr{ext}"
-callbacks_lib = f"{prefix}libfaiss_python_callbacks{ext}"
-swigfaiss_sve_lib = f"{prefix}_swigfaiss_sve{ext}"
-faiss_example_external_module_lib = f"_faiss_example_external_module{ext}"
+def check_exists(libname):
+    if os.path.exists(libname):
+        return libname
+    if os.path.exists(os.path.join("faiss", libname)):
+        return os.path.join("faiss", libname)
+    return None
 
-found_swigfaiss_generic = os.path.exists(swigfaiss_generic_lib)
-found_swigfaiss_avx2 = os.path.exists(swigfaiss_avx2_lib)
-found_swigfaiss_avx512 = os.path.exists(swigfaiss_avx512_lib)
-found_swigfaiss_avx512_spr = os.path.exists(swigfaiss_avx512_spr_lib)
-found_callbacks = os.path.exists(callbacks_lib)
-found_swigfaiss_sve = os.path.exists(swigfaiss_sve_lib)
-found_faiss_example_external_module_lib = os.path.exists(
-    faiss_example_external_module_lib
-)
+swigfaiss_generic_lib_name = f"{prefix}_swigfaiss{ext}"
+swigfaiss_avx2_lib_name = f"{prefix}_swigfaiss_avx2{ext}"
+swigfaiss_avx512_lib_name = f"{prefix}_swigfaiss_avx512{ext}"
+swigfaiss_avx512_spr_lib_name = f"{prefix}_swigfaiss_avx512_spr{ext}"
+callbacks_lib_name = f"{prefix}libfaiss_python_callbacks{ext}"
+swigfaiss_sve_lib_name = f"{prefix}_swigfaiss_sve{ext}"
+faiss_example_external_module_lib_name = f"_faiss_example_external_module{ext}"
+
+swigfaiss_generic_lib = check_exists(swigfaiss_generic_lib_name)
+swigfaiss_avx2_lib = check_exists(swigfaiss_avx2_lib_name)
+swigfaiss_avx512_lib = check_exists(swigfaiss_avx512_lib_name)
+swigfaiss_avx512_spr_lib = check_exists(swigfaiss_avx512_spr_lib_name)
+callbacks_lib = check_exists(callbacks_lib_name)
+swigfaiss_sve_lib = check_exists(swigfaiss_sve_lib_name)
+faiss_example_external_module_lib = check_exists(faiss_example_external_module_lib_name)
+
+found_swigfaiss_generic = swigfaiss_generic_lib is not None
+found_swigfaiss_avx2 = swigfaiss_avx2_lib is not None
+found_swigfaiss_avx512 = swigfaiss_avx512_lib is not None
+found_swigfaiss_avx512_spr = swigfaiss_avx512_spr_lib is not None
+found_callbacks = callbacks_lib is not None
+found_swigfaiss_sve = swigfaiss_sve_lib is not None
+found_faiss_example_external_module_lib = faiss_example_external_module_lib is not None
 
 if platform.system() != "AIX":
     assert (
@@ -60,8 +73,8 @@ if platform.system() != "AIX":
         or found_swigfaiss_sve
         or found_faiss_example_external_module_lib
     ), (
-        f"Could not find {swigfaiss_generic_lib} or "
-        f"{swigfaiss_avx2_lib} or {swigfaiss_avx512_lib} or {swigfaiss_avx512_spr_lib} or {swigfaiss_sve_lib} or {faiss_example_external_module_lib}. "
+        f"Could not find {swigfaiss_generic_lib_name} or "
+        f"{swigfaiss_avx2_lib_name} or {swigfaiss_avx512_lib_name} or {swigfaiss_avx512_spr_lib_name} or {swigfaiss_sve_lib_name} or {faiss_example_external_module_lib_name}. "
         f"Faiss may not be compiled yet."
     )
 
