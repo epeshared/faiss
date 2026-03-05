@@ -9,6 +9,8 @@
 
 #include <cstdio>
 
+#include <type_traits>
+
 #include <faiss/impl/ScalarQuantizer.h>
 #include <faiss/utils/simd_levels.h>
 #include <faiss/utils/simdlib.h>
@@ -161,6 +163,13 @@ SQDistanceComputer* select_distance_computer(
             return new DCTemplate<QuantizerFP16<SL>, Sim, SL>(d, trained);
 
         case ScalarQuantizer::QT_bf16:
+#if defined(__AVX512BF16__)
+            if constexpr (
+                    SL == SIMDLevel::AVX512 &&
+                    std::is_same_v<Sim, SimilarityIP<SIMDLevel::AVX512>>) {
+                return new DCBF16IPDpbf16<SL>(d, trained);
+            }
+#endif
             return new DCTemplate<QuantizerBF16<SL>, Sim, SL>(d, trained);
 
         case ScalarQuantizer::QT_8bit_direct:
@@ -594,6 +603,13 @@ InvertedListScanner* ScalarQuantizer::select_InvertedListScanner(
                 return scan.template
                 operator()<DCTemplate<QuantizerFP16<SL>, Similarity, SL>>();
             case QT_bf16:
+#if defined(__AVX512BF16__)
+                if constexpr (
+                        SL == SIMDLevel::AVX512 &&
+                        std::is_same_v<Similarity, SimilarityIP<SIMDLevel::AVX512>>) {
+                    return scan.template operator()<DCBF16IPDpbf16<SL>>();
+                }
+#endif
                 return scan.template
                 operator()<DCTemplate<QuantizerBF16<SL>, Similarity, SL>>();
             case QT_8bit_direct:

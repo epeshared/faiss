@@ -444,7 +444,7 @@ void search_neighbors_to_add(
             };
 
             int n_buffered = 0;
-            storage_idx_t buffered_ids[4];
+            idx_t buffered_ids[16];
 
             for (size_t j = begin; j < end; j++) {
                 storage_idx_t nodeId = hnsw.neighbors[j];
@@ -455,33 +455,40 @@ void search_neighbors_to_add(
                     continue;
                 }
 
-                buffered_ids[n_buffered] = nodeId;
+                buffered_ids[n_buffered] = (idx_t)nodeId;
                 n_buffered += 1;
 
-                if (n_buffered == 4) {
-                    float dis[4];
-                    qdis.distances_batch_4(
-                            buffered_ids[0],
-                            buffered_ids[1],
-                            buffered_ids[2],
-                            buffered_ids[3],
-                            dis[0],
-                            dis[1],
-                            dis[2],
-                            dis[3]);
-
-                    for (size_t id4 = 0; id4 < 4; id4++) {
-                        update_with_candidate(buffered_ids[id4], dis[id4]);
+                if (n_buffered == 16) {
+                    float dis[16];
+                    qdis.distances_batch(buffered_ids, dis, 16);
+                    for (size_t id = 0; id < 16; id++) {
+                        update_with_candidate((storage_idx_t)buffered_ids[id], dis[id]);
                     }
-
                     n_buffered = 0;
                 }
             }
 
             // process leftovers
-            for (size_t icnt = 0; icnt < n_buffered; icnt++) {
-                float dis = qdis(buffered_ids[icnt]);
-                update_with_candidate(buffered_ids[icnt], dis);
+            int off = 0;
+            for (; off + 4 <= n_buffered; off += 4) {
+                float dis0, dis1, dis2, dis3;
+                qdis.distances_batch_4(
+                        buffered_ids[off + 0],
+                        buffered_ids[off + 1],
+                        buffered_ids[off + 2],
+                        buffered_ids[off + 3],
+                        dis0,
+                        dis1,
+                        dis2,
+                        dis3);
+                update_with_candidate((storage_idx_t)buffered_ids[off + 0], dis0);
+                update_with_candidate((storage_idx_t)buffered_ids[off + 1], dis1);
+                update_with_candidate((storage_idx_t)buffered_ids[off + 2], dis2);
+                update_with_candidate((storage_idx_t)buffered_ids[off + 3], dis3);
+            }
+            for (; off < n_buffered; off++) {
+                float dis = qdis(buffered_ids[off]);
+                update_with_candidate((storage_idx_t)buffered_ids[off], dis);
             }
         }
     }
@@ -682,7 +689,7 @@ int search_from_candidates(
         }
 
         int counter = 0;
-        size_t saved_j[4];
+        idx_t saved_j[16];
 
         threshold = res.threshold;
 
@@ -704,32 +711,40 @@ int search_from_candidates(
             saved_j[counter] = v1;
             counter += vt.set(v1) ? 1 : 0;
 
-            if (counter == 4) {
-                float dis[4];
-                qdis.distances_batch_4(
-                        saved_j[0],
-                        saved_j[1],
-                        saved_j[2],
-                        saved_j[3],
-                        dis[0],
-                        dis[1],
-                        dis[2],
-                        dis[3]);
-
-                for (size_t id4 = 0; id4 < 4; id4++) {
-                    add_to_heap(saved_j[id4], dis[id4]);
+            if (counter == 16) {
+                float dis[16];
+                qdis.distances_batch(saved_j, dis, 16);
+                for (size_t id = 0; id < 16; id++) {
+                    add_to_heap(saved_j[id], dis[id]);
                 }
-
-                ndis += 4;
-
+                ndis += 16;
                 counter = 0;
             }
         }
 
-        for (size_t icnt = 0; icnt < counter; icnt++) {
-            float dis = qdis(saved_j[icnt]);
-            add_to_heap(saved_j[icnt], dis);
-
+        // process remaining in groups of 4 (still benefits from dist_batch_4
+        // overrides), then scalar tail
+        int off = 0;
+        for (; off + 4 <= counter; off += 4) {
+            float dis0, dis1, dis2, dis3;
+            qdis.distances_batch_4(
+                    saved_j[off + 0],
+                    saved_j[off + 1],
+                    saved_j[off + 2],
+                    saved_j[off + 3],
+                    dis0,
+                    dis1,
+                    dis2,
+                    dis3);
+            add_to_heap(saved_j[off + 0], dis0);
+            add_to_heap(saved_j[off + 1], dis1);
+            add_to_heap(saved_j[off + 2], dis2);
+            add_to_heap(saved_j[off + 3], dis3);
+            ndis += 4;
+        }
+        for (; off < counter; off++) {
+            float dis = qdis(saved_j[off]);
+            add_to_heap(saved_j[off], dis);
             ndis += 1;
         }
 
@@ -1035,7 +1050,7 @@ std::priority_queue<HNSW::Node> search_from_candidate_unbounded(
         }
 
         int counter = 0;
-        size_t saved_j[4];
+        idx_t saved_j[16];
 
         auto add_to_heap = [&](const size_t idx, const float dis) {
             if (top_candidates.top().first > dis ||
@@ -1055,32 +1070,38 @@ std::priority_queue<HNSW::Node> search_from_candidate_unbounded(
             saved_j[counter] = v1;
             counter += vt->set(v1) ? 1 : 0;
 
-            if (counter == 4) {
-                float dis[4];
-                qdis.distances_batch_4(
-                        saved_j[0],
-                        saved_j[1],
-                        saved_j[2],
-                        saved_j[3],
-                        dis[0],
-                        dis[1],
-                        dis[2],
-                        dis[3]);
-
-                for (size_t id4 = 0; id4 < 4; id4++) {
-                    add_to_heap(saved_j[id4], dis[id4]);
+            if (counter == 16) {
+                float dis[16];
+                qdis.distances_batch(saved_j, dis, 16);
+                for (size_t id = 0; id < 16; id++) {
+                    add_to_heap(saved_j[id], dis[id]);
                 }
-
-                ndis += 4;
-
+                ndis += 16;
                 counter = 0;
             }
         }
 
-        for (size_t icnt = 0; icnt < counter; icnt++) {
-            float dis = qdis(saved_j[icnt]);
-            add_to_heap(saved_j[icnt], dis);
-
+        int off = 0;
+        for (; off + 4 <= counter; off += 4) {
+            float dis0, dis1, dis2, dis3;
+            qdis.distances_batch_4(
+                    saved_j[off + 0],
+                    saved_j[off + 1],
+                    saved_j[off + 2],
+                    saved_j[off + 3],
+                    dis0,
+                    dis1,
+                    dis2,
+                    dis3);
+            add_to_heap(saved_j[off + 0], dis0);
+            add_to_heap(saved_j[off + 1], dis1);
+            add_to_heap(saved_j[off + 2], dis2);
+            add_to_heap(saved_j[off + 3], dis3);
+            ndis += 4;
+        }
+        for (; off < counter; off++) {
+            float dis = qdis(saved_j[off]);
+            add_to_heap(saved_j[off], dis);
             ndis += 1;
         }
 
@@ -1124,7 +1145,7 @@ HNSWStats greedy_update_nearest(
         };
 
         int n_buffered = 0;
-        storage_idx_t buffered_ids[4];
+        idx_t buffered_ids[16];
 
         for (size_t j = begin; j < end; j++) {
             storage_idx_t v = hnsw.neighbors[j];
@@ -1133,33 +1154,40 @@ HNSWStats greedy_update_nearest(
             }
             ndis += 1;
 
-            buffered_ids[n_buffered] = v;
+            buffered_ids[n_buffered] = (idx_t)v;
             n_buffered += 1;
 
-            if (n_buffered == 4) {
-                float dis[4];
-                qdis.distances_batch_4(
-                        buffered_ids[0],
-                        buffered_ids[1],
-                        buffered_ids[2],
-                        buffered_ids[3],
-                        dis[0],
-                        dis[1],
-                        dis[2],
-                        dis[3]);
-
-                for (size_t id4 = 0; id4 < 4; id4++) {
-                    update_with_candidate(buffered_ids[id4], dis[id4]);
+            if (n_buffered == 16) {
+                float dis[16];
+                qdis.distances_batch(buffered_ids, dis, 16);
+                for (size_t id = 0; id < 16; id++) {
+                    update_with_candidate((storage_idx_t)buffered_ids[id], dis[id]);
                 }
-
                 n_buffered = 0;
             }
         }
 
         // process leftovers
-        for (size_t icnt = 0; icnt < n_buffered; icnt++) {
-            float dis = qdis(buffered_ids[icnt]);
-            update_with_candidate(buffered_ids[icnt], dis);
+        int off = 0;
+        for (; off + 4 <= n_buffered; off += 4) {
+            float dis0, dis1, dis2, dis3;
+            qdis.distances_batch_4(
+                    buffered_ids[off + 0],
+                    buffered_ids[off + 1],
+                    buffered_ids[off + 2],
+                    buffered_ids[off + 3],
+                    dis0,
+                    dis1,
+                    dis2,
+                    dis3);
+            update_with_candidate((storage_idx_t)buffered_ids[off + 0], dis0);
+            update_with_candidate((storage_idx_t)buffered_ids[off + 1], dis1);
+            update_with_candidate((storage_idx_t)buffered_ids[off + 2], dis2);
+            update_with_candidate((storage_idx_t)buffered_ids[off + 3], dis3);
+        }
+        for (; off < n_buffered; off++) {
+            float dis = qdis(buffered_ids[off]);
+            update_with_candidate((storage_idx_t)buffered_ids[off], dis);
         }
 
         // update stats

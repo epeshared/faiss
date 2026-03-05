@@ -92,6 +92,7 @@ set(FAISS_SRC
   impl/CodePacker.cpp
   impl/CodePackerRaBitQ.cpp
   impl/IDSelector.cpp
+  impl/DistanceComputer.cpp
   impl/FaissException.cpp
   impl/HNSW.cpp
   impl/NSG.cpp
@@ -142,6 +143,7 @@ set(FAISS_SRC
   utils/distances_fused/avx512.cpp
   utils/distances_fused/distances_fused.cpp
   utils/distances_fused/simdlib_based.cpp
+  utils/amx_tile_bf16.cpp
   factory_tools.cpp
 )
 
@@ -302,6 +304,7 @@ set(FAISS_HEADERS
   utils/distances_fused/avx512.h
   utils/distances_fused/distances_fused.h
   utils/distances_fused/simdlib_based.h
+  utils/amx_tile_bf16.h
   utils/approx_topk/approx_topk.h
   utils/approx_topk/avx2-inl.h
   utils/approx_topk/generic.h
@@ -380,6 +383,8 @@ if(NOT WIN32)
   # Architecture mode to support AVX512 extensions available since Intel(R) Sapphire Rapids.
   # Ref: https://networkbuilders.intel.com/solutionslibrary/intel-avx-512-fp16-instruction-set-for-intel-xeon-processor-based-products-technology-guide
   target_compile_options(faiss_avx512_spr PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-march=sapphirerapids -mtune=sapphirerapids>)
+  # Enable AMX tile intrinsics in the SPR build (runtime guarded).
+  target_compile_options(faiss_avx512_spr PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-mamx-tile -mamx-bf16>)
 else()
   target_compile_options(faiss_avx512_spr PRIVATE $<$<COMPILE_LANGUAGE:CXX>:/arch:AVX512>)
   # we need bigobj for the swig wrapper

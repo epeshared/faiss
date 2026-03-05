@@ -227,6 +227,14 @@ struct FlatIPDis : FlatCodesDistanceComputer {
     const float* b;
     size_t ndis;
 
+    float partial_dot_product(
+            const idx_t i,
+            const uint32_t offset,
+            const uint32_t num_components) final override {
+        return fvec_inner_product<SL>(
+                q + offset, b + i * d + offset, num_components);
+    }
+
     float symmetric_dis(idx_t i, idx_t j) final override {
         return fvec_inner_product<SL>(b + j * d, b + i * d, d);
     }
@@ -332,6 +340,14 @@ struct FlatL2WithNormsDis : FlatCodesDistanceComputer {
 
     const float* l2norms;
     float query_l2norm;
+
+    float partial_dot_product(
+            const idx_t i,
+            const uint32_t offset,
+            const uint32_t num_components) final override {
+        return fvec_inner_product<SL>(
+                q + offset, b + i * d + offset, num_components);
+    }
 
     float distance_to_code(const uint8_t* code) final override {
         ndis++;

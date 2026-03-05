@@ -9,6 +9,8 @@
 
 #include <faiss/Index.h>
 
+#include <typeinfo>
+
 namespace faiss {
 
 /***********************************************************
@@ -30,6 +32,14 @@ struct DistanceComputer {
     /// compute distance of vector i to current query
     virtual float operator()(idx_t i) = 0;
 
+    /// compute distances of current query to n stored vectors.
+    /// Default implementation calls operator() in a loop.
+    virtual void distances_batch(const idx_t* idx, float* dis, int n) {
+        for (int i = 0; i < n; i++) {
+            dis[i] = this->operator()(idx[i]);
+        }
+    }
+
     /// compute distances of current query to 4 stored vectors.
     /// certain DistanceComputer implementations may benefit
     /// heavily from this.
@@ -42,15 +52,13 @@ struct DistanceComputer {
             float& dis1,
             float& dis2,
             float& dis3) {
-        // compute first, assign next
-        const float d0 = this->operator()(idx0);
-        const float d1 = this->operator()(idx1);
-        const float d2 = this->operator()(idx2);
-        const float d3 = this->operator()(idx3);
-        dis0 = d0;
-        dis1 = d1;
-        dis2 = d2;
-        dis3 = d3;
+        idx_t idx[4] = {idx0, idx1, idx2, idx3};
+        float dis[4];
+        this->distances_batch(idx, dis, 4);
+        dis0 = dis[0];
+        dis1 = dis[1];
+        dis2 = dis[2];
+        dis3 = dis[3];
     }
 
     /// compute distance between two stored vectors
@@ -66,17 +74,14 @@ struct NegativeDistanceComputer : DistanceComputer {
     /// owned by this
     DistanceComputer* basedis;
 
-    explicit NegativeDistanceComputer(DistanceComputer* basedis)
-            : basedis(basedis) {}
+    explicit NegativeDistanceComputer(DistanceComputer* basedis);
 
-    void set_query(const float* x) override {
-        basedis->set_query(x);
-    }
+    void set_query(const float* x) override;
 
     /// compute distance of vector i to current query
-    float operator()(idx_t i) override {
-        return -(*basedis)(i);
-    }
+    float operator()(idx_t i) override;
+
+    void distances_batch(const idx_t* idx, float* dis, int n) override;
 
     void distances_batch_4(
             const idx_t idx0,
@@ -86,23 +91,12 @@ struct NegativeDistanceComputer : DistanceComputer {
             float& dis0,
             float& dis1,
             float& dis2,
-            float& dis3) override {
-        basedis->distances_batch_4(
-                idx0, idx1, idx2, idx3, dis0, dis1, dis2, dis3);
-        dis0 = -dis0;
-        dis1 = -dis1;
-        dis2 = -dis2;
-        dis3 = -dis3;
-    }
+            float& dis3) override;
 
     /// compute distance between two stored vectors
-    float symmetric_dis(idx_t i, idx_t j) override {
-        return -basedis->symmetric_dis(i, j);
-    }
+    float symmetric_dis(idx_t i, idx_t j) override;
 
-    virtual ~NegativeDistanceComputer() override {
-        delete basedis;
-    }
+    ~NegativeDistanceComputer() override;
 };
 
 /*************************************************************
@@ -162,7 +156,9 @@ struct FlatCodesDistanceComputer : DistanceComputer {
             const idx_t /* i */,
             const uint32_t /* offset */,
             const uint32_t /* num_components */) {
-        FAISS_THROW_MSG("partial_dot_product not implemented");
+            FAISS_THROW_FMT(
+                "partial_dot_product not implemented (dynamic type: %s)",
+                typeid(*this).name());
     }
 
     /// compute distance of current query to an encoded vector
