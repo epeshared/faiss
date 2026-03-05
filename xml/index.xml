@@ -663,6 +663,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4b7236a757c788401aac00598ed902c7" kind="function"><name>symmetric_dis</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a4ec2d004151ff20fe2b7f1189b668cb6" kind="variable"><name>codes</name></member>
@@ -679,12 +680,13 @@
     <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1aa91d64fa00bf30733a7a7be43b5be650" kind="function"><name>compute_distance</name></member>
     <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1aaff19881965684e88f1534b668bbdc69" kind="function"><name>compute_code_distance</name></member>
     <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1a26623e7801c7f8d3c5c557f05e29c609" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1ae0c8e57d059031311214f6bd57ee7e31" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1a4bbe35806c4b44e2ee4067ddcf97fa94" kind="function"><name>symmetric_dis</name></member>
     <member refid="structfaiss_1_1scalar__quantizer_1_1DCTemplate_3_01Quantizer_00_01Similarity_00_01SIMDLevel_1_1NONE_01_4_1afe72e89676a46858f98bf2aa5b807a7b" kind="function"><name>query_to_code</name></member>
     <member refid="structfaiss_1_1ScalarQuantizer_1_1SQDistanceComputer_1a11e1e24a0e654098c5394e934faeb919" kind="function"><name>distance_to_code</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1ae9a61bfa23567fc0ee689c2e0b1ac287" kind="function"><name>operator()</name></member>
-    <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
   </compound>
   <compound refid="structfaiss_1_1ivflib_1_1DefaultShardingFunction" kind="struct"><name>faiss::ivflib::DefaultShardingFunction</name>
@@ -728,6 +730,7 @@
   <compound refid="structfaiss_1_1DistanceComputer" kind="struct"><name>faiss::DistanceComputer</name>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4d71be87bbd904043f6bc2fae03d037f" kind="function"><name>operator()</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4b7236a757c788401aac00598ed902c7" kind="function"><name>symmetric_dis</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a804c42a1f74d9382d5a6c94affd7bfda" kind="function"><name>~DistanceComputer</name></member>
@@ -739,6 +742,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4b7236a757c788401aac00598ed902c7" kind="function"><name>symmetric_dis</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a4ec2d004151ff20fe2b7f1189b668cb6" kind="variable"><name>codes</name></member>
@@ -762,6 +766,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1ae9a61bfa23567fc0ee689c2e0b1ac287" kind="function"><name>operator()</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
   </compound>
   <compound refid="structfaiss_1_1simd__result__handlers_1_1DummyResultHandler" kind="struct"><name>faiss::simd_result_handlers::DummyResultHandler</name>
@@ -896,6 +901,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a743c45ee4140ff06315d1ce3f7ec4cb2" kind="function"><name>~FlatCodesDistanceComputer</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4b7236a757c788401aac00598ed902c7" kind="function"><name>symmetric_dis</name></member>
   </compound>
@@ -8625,9 +8631,10 @@
     <member refid="structfaiss_1_1NegativeDistanceComputer_1a1a4b71ca60b1e0d2f1ab099261f639e6" kind="function"><name>NegativeDistanceComputer</name></member>
     <member refid="structfaiss_1_1NegativeDistanceComputer_1aa49c65103c68f2d8b56bf3f8d5ee2826" kind="function"><name>set_query</name></member>
     <member refid="structfaiss_1_1NegativeDistanceComputer_1a9098b773e2a5cf64a616de0f3b94f3de" kind="function"><name>operator()</name></member>
+    <member refid="structfaiss_1_1NegativeDistanceComputer_1a65068fc858090800a60d18e49654c1cd" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1NegativeDistanceComputer_1a62901b5b662e6b8f791f166d85e8525c" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1NegativeDistanceComputer_1a64ecc52adf1c541e943abb22290da1df" kind="function"><name>symmetric_dis</name></member>
-    <member refid="structfaiss_1_1NegativeDistanceComputer_1a8d90290dd08d1357443a83d7435863e4" kind="function"><name>~NegativeDistanceComputer</name></member>
+    <member refid="structfaiss_1_1NegativeDistanceComputer_1af34ab929b5fe70e2172d63e594b83319" kind="function"><name>~NegativeDistanceComputer</name></member>
   </compound>
   <compound refid="structfaiss_1_1nndescent_1_1Neighbor" kind="struct"><name>faiss::nndescent::Neighbor</name>
     <member refid="structfaiss_1_1nndescent_1_1Neighbor_1adce5680f1e46d4aab85d672fd8bb2d3c" kind="variable"><name>id</name></member>
@@ -9538,6 +9545,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
   </compound>
   <compound refid="structfaiss_1_1RaBitQHeapHandler" kind="struct"><name>faiss::RaBitQHeapHandler</name>
@@ -11016,6 +11024,7 @@
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1aa16621e09ff7856177e9f31366d9a502" kind="function"><name>partial_dot_product</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a0a1a06140ca552b2d3362758be66b962" kind="function"><name>partial_dot_product_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1aaa4472453365b786adc2ab21e9cee5ec" kind="function"><name>set_query</name></member>
+    <member refid="structfaiss_1_1DistanceComputer_1ae1e998e530017a7a3080eff6a0cf446a" kind="function"><name>distances_batch</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1af6e114e82ca59caa7040d0bd3ba1c4ff" kind="function"><name>distances_batch_4</name></member>
     <member refid="structfaiss_1_1DistanceComputer_1a4b7236a757c788401aac00598ed902c7" kind="function"><name>symmetric_dis</name></member>
     <member refid="structfaiss_1_1FlatCodesDistanceComputer_1a4ec2d004151ff20fe2b7f1189b668cb6" kind="variable"><name>codes</name></member>
@@ -12021,19 +12030,25 @@
     <member refid="namespacefaiss_1a0e26e4710a7c276f46b730d8ab6ac1e0" kind="function"><name>hash_bytes</name></member>
     <member refid="namespacefaiss_1ad86caef545c6a7672422d7d34c03f446" kind="function"><name>check_openmp</name></member>
   </compound>
-  <compound refid="namespacefaiss_1_1_0d165" kind="namespace"><name>faiss::@165</name>
+  <compound refid="namespacefaiss_1_1_0d166" kind="namespace"><name>faiss::@166</name>
   </compound>
-  <compound refid="namespacefaiss_1_1_0d175" kind="namespace"><name>faiss::@175</name>
+  <compound refid="namespacefaiss_1_1_0d176" kind="namespace"><name>faiss::@176</name>
   </compound>
-  <compound refid="namespacefaiss_1_1_0d198" kind="namespace"><name>faiss::@198</name>
-  </compound>
-  <compound refid="namespacefaiss_1_1_0d200" kind="namespace"><name>faiss::@200</name>
+  <compound refid="namespacefaiss_1_1_0d199" kind="namespace"><name>faiss::@199</name>
   </compound>
   <compound refid="namespacefaiss_1_1_0d201" kind="namespace"><name>faiss::@201</name>
   </compound>
   <compound refid="namespacefaiss_1_1_0d202" kind="namespace"><name>faiss::@202</name>
   </compound>
+  <compound refid="namespacefaiss_1_1_0d203" kind="namespace"><name>faiss::@203</name>
+  </compound>
   <compound refid="namespacefaiss_1_1_0d51" kind="namespace"><name>faiss::@51</name>
+  </compound>
+  <compound refid="namespacefaiss_1_1amx" kind="namespace"><name>faiss::amx</name>
+    <member refid="amx__tile__bf16_8h_1a5614143eb9950d6ed5438a264a0b7d3d" kind="function"><name>faiss_amx_ip_bf16_rows_1x16_calls</name></member>
+    <member refid="amx__tile__bf16_8h_1a3e2e5fb25e2009f6795b48c468d5e853" kind="function"><name>faiss_amx_ip_bf16_rows_1x16_reset</name></member>
+    <member refid="amx__tile__bf16_8h_1a094753f0d77af071182efdcbbb275e20" kind="function"><name>enable_amx_for_this_thread</name></member>
+    <member refid="amx__tile__bf16_8h_1affb0f50b81968839fd6f09cbeff23aa3" kind="function"><name>ip_bf16_rows_1x16</name></member>
   </compound>
   <compound refid="namespacefaiss_1_1cppcontrib" kind="namespace"><name>faiss::cppcontrib</name>
     <member refid="Level2-inl_8h_1ae4e8b14ff45f25eb929a6d6b3cbd3c39" kind="function"><name>isBigEndian</name></member>
@@ -12819,6 +12834,8 @@
   <compound refid="IndexSVSVamanaLVQ_8h" kind="file"><name>IndexSVSVamanaLVQ.h</name>
   </compound>
   <compound refid="AlignedTable_8h" kind="file"><name>AlignedTable.h</name>
+  </compound>
+  <compound refid="amx__tile__bf16_8h" kind="file"><name>amx_tile_bf16.h</name>
   </compound>
   <compound refid="approx__topk_8h" kind="file"><name>approx_topk.h</name>
   </compound>

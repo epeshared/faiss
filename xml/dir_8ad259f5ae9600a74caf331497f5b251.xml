@@ -9,6 +9,7 @@
     <innerdir refid="dir_2e120e9f86a8a41d6e1ffdae090fcfea">faiss/utils/simd_impl</innerdir>
     <innerdir refid="dir_6db856fab8a406bb2751df9e12e5655b">faiss/utils/transpose</innerdir>
     <innerfile refid="AlignedTable_8h">AlignedTable.h</innerfile>
+    <innerfile refid="amx__tile__bf16_8h">amx_tile_bf16.h</innerfile>
     <innerfile refid="bf16_8h">bf16.h</innerfile>
     <innerfile refid="distances_8h">distances.h</innerfile>
     <innerfile refid="distances__dispatch_8h">distances_dispatch.h</innerfile>

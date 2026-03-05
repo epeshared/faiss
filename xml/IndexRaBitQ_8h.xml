@@ -26,7 +26,7 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -34,9 +34,9 @@
         <link refid="IndexRaBitQ_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
         <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -55,6 +55,8 @@
         <label>faiss/impl/DistanceComputer.h</label>
         <link refid="DistanceComputer_8h_source"/>
         <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -87,24 +89,24 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>faiss/impl/Quantizer.h</label>
         <link refid="Quantizer_8h_source"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>faiss/impl/RaBitQStats.h</label>
         <link refid="RaBitQStats_8h_source"/>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
-      <node id="23">
+      <node id="24">
         <label>faiss/impl/RaBitQuantizer.h</label>
         <link refid="RaBitQuantizer_8h_source"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -112,19 +114,19 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>faiss/impl/maybe_owned_vector.h</label>
         <link refid="maybe__owned__vector_8h_source"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
         <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -142,7 +144,7 @@
       <node id="15">
         <label>cinttypes</label>
       </node>
-      <node id="19">
+      <node id="20">
         <label>cstddef</label>
       </node>
       <node id="6">
@@ -154,7 +156,7 @@
       <node id="8">
         <label>cstdlib</label>
       </node>
-      <node id="20">
+      <node id="21">
         <label>cstring</label>
       </node>
       <node id="11">
@@ -163,14 +165,17 @@
       <node id="16">
         <label>limits</label>
       </node>
-      <node id="21">
+      <node id="22">
         <label>memory</label>
       </node>
-      <node id="25">
+      <node id="26">
         <label>stdint.h</label>
       </node>
       <node id="12">
         <label>string</label>
+      </node>
+      <node id="18">
+        <label>typeinfo</label>
       </node>
       <node id="13">
         <label>utility</label>

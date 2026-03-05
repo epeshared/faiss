@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacefaiss_1_1amx" kind="namespace" language="C++">
+    <compoundname>faiss::amx</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="amx__tile__bf16_8h_1a5614143eb9950d6ed5438a264a0b7d3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t faiss::amx::faiss_amx_ip_bf16_rows_1x16_calls</definition>
+        <argsstring>()</argsstring>
+        <name>faiss_amx_ip_bf16_rows_1x16_calls</name>
+        <qualifiedname>faiss::amx::faiss_amx_ip_bf16_rows_1x16_calls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/utils/amx_tile_bf16.h" line="13" column="10" declfile="faiss/utils/amx_tile_bf16.h" declline="13" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="amx__tile__bf16_8h_1a3e2e5fb25e2009f6795b48c468d5e853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void faiss::amx::faiss_amx_ip_bf16_rows_1x16_reset</definition>
+        <argsstring>()</argsstring>
+        <name>faiss_amx_ip_bf16_rows_1x16_reset</name>
+        <qualifiedname>faiss::amx::faiss_amx_ip_bf16_rows_1x16_reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/utils/amx_tile_bf16.h" line="14" column="6" declfile="faiss/utils/amx_tile_bf16.h" declline="14" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="amx__tile__bf16_8h_1a094753f0d77af071182efdcbbb275e20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool faiss::amx::enable_amx_for_this_thread</definition>
+        <argsstring>()</argsstring>
+        <name>enable_amx_for_this_thread</name>
+        <qualifiedname>faiss::amx::enable_amx_for_this_thread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/utils/amx_tile_bf16.h" line="19" column="6" declfile="faiss/utils/amx_tile_bf16.h" declline="19" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="amx__tile__bf16_8h_1affb0f50b81968839fd6f09cbeff23aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int faiss::amx::ip_bf16_rows_1x16</definition>
+        <argsstring>(const uint16_t *A, const uint16_t *q, size_t d, int rows, float *out)</argsstring>
+        <name>ip_bf16_rows_1x16</name>
+        <qualifiedname>faiss::amx::ip_bf16_rows_1x16</qualifiedname>
+        <param>
+          <type>const uint16_t *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>const uint16_t *</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/utils/amx_tile_bf16.h" line="26" column="5" declfile="faiss/utils/amx_tile_bf16.h" declline="26" declcolumn="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="faiss/utils/amx_tile_bf16.h" line="7" column="1"/>
+  </compounddef>
+</doxygen>

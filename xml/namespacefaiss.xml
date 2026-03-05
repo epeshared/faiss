@@ -328,6 +328,7 @@
     <innerclass refid="structfaiss_1_1ZnSphereCodecAlt" prot="public">faiss::ZnSphereCodecAlt</innerclass>
     <innerclass refid="structfaiss_1_1ZnSphereCodecRec" prot="public">faiss::ZnSphereCodecRec</innerclass>
     <innerclass refid="structfaiss_1_1ZnSphereSearch" prot="public">faiss::ZnSphereSearch</innerclass>
+    <innernamespace refid="namespacefaiss_1_1amx">faiss::amx</innernamespace>
     <innernamespace refid="namespacefaiss_1_1cppcontrib">faiss::cppcontrib</innernamespace>
     <innernamespace refid="namespacefaiss_1_1detail">faiss::detail</innernamespace>
     <innernamespace refid="namespacefaiss_1_1gpu">faiss::gpu</innernamespace>

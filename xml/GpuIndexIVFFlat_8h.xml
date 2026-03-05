@@ -151,6 +151,8 @@
         <link refid="DistanceComputer_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
       </node>
       <node id="9">
         <label>faiss/impl/FaissAssert.h</label>
@@ -218,7 +220,7 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="50">
+      <node id="51">
         <label>faiss/impl/Quantizer.h</label>
         <link refid="Quantizer_8h_source"/>
         <childnode refid="21" relation="include">
@@ -231,7 +233,7 @@
         </childnode>
         <childnode refid="49" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="51" relation="include">
         </childnode>
       </node>
       <node id="37">
@@ -385,6 +387,9 @@
       </node>
       <node id="12">
         <label>string</label>
+      </node>
+      <node id="50">
+        <label>typeinfo</label>
       </node>
       <node id="39">
         <label>unordered_map</label>
